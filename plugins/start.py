@@ -180,6 +180,7 @@ async def send_text(client: Bot, message: Message):
             total += 1
         
         status = f"""✅ اطلاع‌رسانی کامل شد
+
 <b>• تعداد کاربران: <code>{total}</code>
 • موفق: <code>{successful}</code>
 • کاربران مسدود کرده: <code>{blocked}</code>
