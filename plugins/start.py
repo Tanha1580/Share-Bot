@@ -13,9 +13,9 @@ from database.sql import add_user, query_msg, full_userbase
 
 #=====================================================================================##
 
-WAIT_MSG = """"<b>Processing ...</b>"""
+WAIT_MSG = """"⚙ در حال پردازش ..."""
 
-REPLY_ERROR = """<code>Use this command as a replay to any telegram message with out any spaces.</code>"""
+REPLY_ERROR = """📢 اطلاع‌رسانی\n\nروی پیام مورد نظر ریپلای نمائید و مجدد <code>/broadcast</code> را ارسال کنید."""
 
 #=====================================================================================##
 
@@ -36,10 +36,10 @@ async def start_command(client: Client, message: Message):
             return
         string = await decode(base64_string)
         argument = string.split("-")
-        if len(argument) == 3:
+        if len(argument) == 2:
             try:
-                start = int(int(argument[1]) / abs(client.db_channel.id))
-                end = int(int(argument[2]) / abs(client.db_channel.id))
+                start = int(int(argument[0]) / int(str(abs(client.db_channel.id))[3:]))
+                end = int(int(argument[1]) / int(str(abs(client.db_channel.id))[3:]))
             except:
                 return
             if start <= end:
@@ -52,16 +52,16 @@ async def start_command(client: Client, message: Message):
                     i -= 1
                     if i < end:
                         break
-        elif len(argument) == 2:
+        elif len(argument) == 1:
             try:
-                ids = [int(int(argument[1]) / abs(client.db_channel.id))]
+                ids = [int(int(argument[0]) / int(str(abs(client.db_channel.id))[3:]))]
             except:
                 return
-        temp_msg = await message.reply("Please wait...")
+        temp_msg = await message.reply("⏳ لطفا صبر کنید ...")
         try:
             messages = await get_messages(client, ids)
         except:
-            await message.reply_text("Something went wrong..!")
+            await message.reply_text("❗️مشکلی رخ داد !")
             return
         await temp_msg.delete()
 
@@ -90,15 +90,15 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("😊 About Me", callback_data = "about"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    InlineKeyboardButton("🤖 دربارۀ ربات", callback_data = "about"),
+                    InlineKeyboardButton("❌ بستن", callback_data = "close")
                 ]
             ]
         )
         await message.reply_text(
             text = START_MSG.format(
                 first = message.from_user.first_name,
-                last = message.from_user.last_name,
+                last = "" if not message.from_user.last_name else ' ' + message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
                 mention = message.from_user.mention,
                 id = message.from_user.id
@@ -114,7 +114,7 @@ async def not_joined(client: Client, message: Message):
     buttons = [
         [
             InlineKeyboardButton(
-                "Join Channel",
+                "• عضویت کانال",
                 url = client.invitelink)
         ]
     ]
@@ -122,7 +122,7 @@ async def not_joined(client: Client, message: Message):
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text = 'Try Again',
+                    text = '• تلاش مجدد',
                     url = f"https://t.me/{client.username}?start={message.command[1]}"
                 )
             ]
@@ -133,7 +133,7 @@ async def not_joined(client: Client, message: Message):
     await message.reply(
         text = FORCE_MSG.format(
                 first = message.from_user.first_name,
-                last = message.from_user.last_name,
+                last = "" if not message.from_user.last_name else ' ' + message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
                 mention = message.from_user.mention,
                 id = message.from_user.id
@@ -160,7 +160,7 @@ async def send_text(client: Bot, message: Message):
         deleted = 0
         unsuccessful = 0
         
-        pls_wait = await message.reply("<i>Broadcasting Message.. This will Take Some Time</i>")
+        pls_wait = await message.reply("📢 پیام اطلاع‌رسانی\nاین عمل ممکن است کمی طول بکشد ...")
         for row in query:
             chat_id = int(row[0])
             try:
@@ -179,13 +179,13 @@ async def send_text(client: Bot, message: Message):
                 pass
             total += 1
         
-        status = f"""<b><u>Broadcast Completed</u>
+        status = f"""✅ اطلاع‌رسانی کامل شد
 
-Total Users: <code>{total}</code>
-Successful: <code>{successful}</code>
-Blocked Users: <code>{blocked}</code>
-Deleted Accounts: <code>{deleted}</code>
-Unsuccessful: <code>{unsuccessful}</code></b>"""
+<b>• تعداد کاربران: <code>{total}</code>
+• موفق: <code>{successful}</code>
+• کاربران مسدود کرده: <code>{blocked}</code>
+• کاربران حذف شده: <code>{deleted}</code>
+• ناموفق: <code>{unsuccessful}</code></b>"""
         
         return await pls_wait.edit(status)
 
