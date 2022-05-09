@@ -37,6 +37,10 @@
       "description": "Optional: start message of bot, use HTML parsemode format",
       "value": "👋 سلام [ {mention} ] عزیز 🌹\n\n\n🆔 شناسۀ کاربری شما: <code>{id}</code>"
     },
+    "ABOUT_MESSAGE":{
+      "description": "text that you see in about me",
+      "value": "🔰 ربات آپلودر اختصاصی\n\n\n💻 برنامه‌نویسی شده توسط 𝗔𝗹𝗶"
+    },
     "FORCE_SUB_MESSAGE": {
       "description": "Optional: Force Sub message of bot, use HTML parsemode format",
       "value": "⚜ کاربر گرامی\n\n\n◄ جهت استفاده از ربات، در کانال زیر عضو شوید."
