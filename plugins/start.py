@@ -142,6 +142,10 @@ async def not_joined(client: Client, message: Message):
         quote = True,
         disable_web_page_preview = True
     )
+await asyncio.sleep(6)
+await message.delete()
+try:
+   await massage.reply_to_message.delete()
 
 @Bot.on_message(filters.command('users') & filters.private & filters.user(ADMINS))
 async def get_users(client: Bot, message: Message):
