@@ -58,12 +58,6 @@ async def start_command(client: Client, message: Message):
             except:
                 return
         temp_msg = await message.reply("⏳ لطفا صبر کنید ...")
-        try:
-            messages = await get_messages(client, ids)
-        except:
-            await message.reply_text("❗️مشکلی رخ داد !")
-            return
-        await temp_msg.delete()
 
         for msg in messages:
 
