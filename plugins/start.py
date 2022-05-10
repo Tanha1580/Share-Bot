@@ -141,7 +141,7 @@ async def not_joined(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(buttons),
         quote = True,
         disable_web_page_preview = True,
-        await asyncio.sleep(8)
+        await asyncio.sleep(8),
         await text.delete()
     )
 
