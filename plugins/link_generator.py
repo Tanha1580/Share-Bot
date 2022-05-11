@@ -33,7 +33,7 @@ async def batch(client: Client, message: Message):
             continue
 
 
-    string = f"{(f_msg_id * int(str(abs(client.db_channel.id))[3:]) + X_NUM)}-{(s_msg_id * int(str(abs(client.db_channel.id))[3:]) + X_NUM)}"
+    string = f"{(f_msg_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)}-{(s_msg_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)}"
     base64_string = await encode(string)
     link = f"t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
@@ -54,7 +54,7 @@ async def link_generator(client: Client, message: Message):
             await channel_message.reply("❌ خطا\n\nاین [ پست / لینک ] از کانال دیتابیس نیست یا حذف شده است.", quote = True)
             continue
 
-    base64_string = await encode(f"{(msg_id * int(str(abs(client.db_channel.id))[3:]) + X_NUM)}")
+    base64_string = await encode(f"{(msg_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)}")
     link = f"t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
     await channel_message.reply_text(f"🔗 لینک ایجاد شده برای فایل شما\n\n─═════─✦─═════─\n{link}", quote=True, reply_markup=reply_markup, disable_web_page_preview = True)
