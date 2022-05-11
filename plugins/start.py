@@ -6,7 +6,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 
 from bot import Bot
-from config import ADMINS, FORCE_MSG, START_MSG, OWNER_ID, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT
+from config import ADMINS, FORCE_MSG, START_MSG, OWNER_ID, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT,X_NUM
 from helper_func import subscribed, encode, decode, get_messages
 from database.sql import add_user, query_msg, full_userbase
 
@@ -38,8 +38,8 @@ async def start_command(client: Client, message: Message):
         argument = string.split("-")
         if len(argument) == 2:
             try:
-                start = int((int(argument[0]) - 6) / int(str(abs(client.db_channel.id))[3:]))
-                end = int((int(argument[1]) - 6) / int(str(abs(client.db_channel.id))[3:]))
+                start = int((int(argument[0]) - X_NUM) / int(str(abs(client.db_channel.id))[3:]))
+                end = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[3:]))
             except:
                 return
             if start <= end:
@@ -54,7 +54,7 @@ async def start_command(client: Client, message: Message):
                         break
         elif len(argument) == 1:
             try:
-                ids = [int((int(argument[0]) - 6) / int(str(abs(client.db_channel.id))[3:]))]
+                ids = [int((int(argument[0]) - X_NUM) / int(str(abs(client.db_channel.id))[3:]))]
             except:
                 return
         temp_msg = await message.reply("⏳ لطفا صبر کنید ...")
