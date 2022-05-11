@@ -15,7 +15,11 @@
     },
     "OWNER_ID": {
       "description": "An integer of consisting of your owner ID",
-      "value": "1250450587"
+      "value": ""
+    },
+    "STATIC_NUM": {
+      "description": "Static number",
+      "value": "0"
     },
     "APP_ID":{
       "description": "your app id, take it from my.telegram.org",
