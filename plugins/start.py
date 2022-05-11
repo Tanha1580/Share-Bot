@@ -38,8 +38,8 @@ async def start_command(client: Client, message: Message):
         argument = string.split("-")
         if len(argument) == 2:
             try:
-                start = int((int(argument[0]) - STATIC_NUM) / int(str(abs(client.db_channel.id))[3:]))
-                end = int((int(argument[1]) - STATIC_NUM) / int(str(abs(client.db_channel.id))[3:]))
+                start = int((int(argument[0]) - STATIC_NUM) / int(str(abs(client.db_channel.id))[6:]))
+                end = int((int(argument[1]) - STATIC_NUM) / int(str(abs(client.db_channel.id))[6:]))
             except:
                 return
             if start <= end:
@@ -54,7 +54,7 @@ async def start_command(client: Client, message: Message):
                         break
         elif len(argument) == 1:
             try:
-                ids = [int((int(argument[0]) - STATIC_NUM) / int(str(abs(client.db_channel.id))[3:]))]
+                ids = [int((int(argument[0]) - STATIC_NUM) / int(str(abs(client.db_channel.id))[6:]))]
             except:
                 return
         temp_msg = await message.reply("⏳ لطفا صبر کنید ...")
@@ -79,7 +79,7 @@ async def start_command(client: Client, message: Message):
 
             try:
                 await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-                await asyncio.sleep(0.5)
+                await asyncio.sleep(0.4)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
