@@ -79,10 +79,17 @@ async def start_command(client: Client, message: Message):
 
             try:
                 await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-                await asyncio.sleep(0.5)
+                temp_msg1 = await message.reply("⏳فایل بعد از 10 ثانیه پاک میشود ")
+                await asyncio.sleep(10)
+                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT).delete()
+                await temp_msg1.delete()
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                temp_msg1 = await message.reply("⏳فایل بعد از 10 ثانیه پاک میشود ")
+                await asyncio.sleep(10)
+                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT).delete()
+                await temp_msg1.delete()
             except:
                 pass
         return
