@@ -22,7 +22,7 @@ async def channel_post(client: Client, message: Message):
         await reply_text.edit_text("❗️مشکلی رخ داد !")
         return
     converted_id = (post_message.message_id * int(str(abs(client.db_channel.id))[3:]) + X_NUM)
-    string = f"{converted_id}-4"
+    string = f"{converted_id} + "4""
     base64_string = await encode(string)
     link = f"t.me/{client.username}?start={base64_string}"
 
@@ -40,7 +40,7 @@ async def new_post(client: Client, message: Message):
         return
 
     converted_id = (message.message_id * int(str(abs(client.db_channel.id))[3:]) + X_NUM)
-    string = f"{converted_id}-4"
+    string = f"{converted_id} + "4""
     base64_string = await encode(string)
     link = f"t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
