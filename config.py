@@ -17,6 +17,9 @@ CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
 #OWNER ID
 OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 
+#Static number to plus
+STATIC_NUM = int(os.environ.get("STATIC_NUM", ""))
+
 #Database 
 DB_URI = os.environ.get("DATABASE_URL", "")
 
