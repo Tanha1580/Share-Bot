@@ -20,6 +20,9 @@ OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 #Static number to plus
 STATIC_NUM = int(os.environ.get("STATIC_NUM", ""))
 
+#Enable/Disable inline button in Start Message. reply_markup/None
+MARKUP = int(os.environ.get("MARKUP", ""))
+
 #Database 
 DB_URI = os.environ.get("DATABASE_URL", "")
 
