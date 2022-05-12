@@ -38,8 +38,8 @@ async def start_command(client: Client, message: Message):
         argument = string.split("-")
         if len(argument) == 2:
             try:
-                start = int((int(argument[0]) - X_NUM) / int(str(abs(client.db_channel.id))[6:]))
-                end = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[6:]))
+                start = int((int(argument[0]) - X_NUM) / int(str(abs(client.db_channel.id))[8:]))
+                end = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[8:]))
             except:
                 return
             if start <= end:
