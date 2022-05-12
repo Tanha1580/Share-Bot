@@ -94,6 +94,11 @@ async def start_command(client: Client, message: Message):
                     InlineKeyboardButton("❌ بستن", callback_data = "close")
                 ]
             ]
+            [
+                [
+                    InlineKeyboardButton("کانال ما", url = https://t.me/fontgah)
+                ]
+            ]
         )
         await message.reply_text(
             text = START_MSG.format(
