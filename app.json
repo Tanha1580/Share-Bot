@@ -21,10 +21,6 @@
       "description": "Static number",
       "value": "0"
     },
-    "MARKUP": {
-      "description": "Enable/Disable inline button in Start Message. reply_markup/None",
-      "value": "reply_markup"
-    },
     "APP_ID":{
       "description": "your app id, take it from my.telegram.org",
       "value": ""
