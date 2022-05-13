@@ -90,8 +90,7 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🤖 دربارۀ ربات", callback_data = "about"),
-                    InlineKeyboardButton("❌ بستن", callback_data = "close")
+                    InlineKeyboardButton("🤖 دربارۀ ربات", callback_data = "about")
                 ]
             ]
         )
@@ -115,7 +114,7 @@ async def not_joined(client: Client, message: Message):
         [
             InlineKeyboardButton(
                 "• عضویت",
-                url = client.invitelink)
+                url = https://t.me/+FwcB6lQOygZlZGMx)
         ]
     ]
     try:
