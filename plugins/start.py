@@ -38,8 +38,8 @@ async def start_command(client: Client, message: Message):
         argument = string.split("-")
         if len(argument) == 2:
             try:
-                start = int((int(argument[0]) - STATIC_NUM) / int(str(abs(client.db_channel.id))[6:]))
-                end = int((int(argument[1]) - STATIC_NUM) / int(str(abs(client.db_channel.id))[6:]))
+                start = int((int(argument[0]) - STATIC_NUM) / int(str(abs(client.db_channel.id))[8:]))
+                end = int((int(argument[1]) - STATIC_NUM) / int(str(abs(client.db_channel.id))[8:]))
             except:
                 return
             if start <= end:
@@ -90,8 +90,7 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🤖 دربارۀ ربات", callback_data = "about"),
-                    InlineKeyboardButton("❌ بستن", callback_data = "close")
+                    InlineKeyboardButton("🤖 دربارۀ ربات", callback_data = "about")
                 ]
             ]
         )
@@ -114,7 +113,7 @@ async def not_joined(client: Client, message: Message):
     buttons = [
         [
             InlineKeyboardButton(
-                "• عضویت کانال",
+                "• عضویت",
                 url = client.invitelink)
         ]
     ]
