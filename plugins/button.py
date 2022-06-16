@@ -4,7 +4,7 @@ from pyrogram.types import InlineKeyboardButton
 
 
 def fsub_button(client, message):
-    if FORCE_SUB_CHANNEL_1 and not FORCE_SUB_CHANNEL_2 and not FORCE_SUB_CHANNEL_3 and not FORCE_SUB_CHANNEL_4
+    if FORCE_SUB_CHANNEL_1 and not FORCE_SUB_CHANNEL_2 and not FORCE_SUB_CHANNEL_3 and not FORCE_SUB_CHANNEL_4:
         buttons = [
 	    [
 	        InlineKeyboardButton(text = "• عضویت اول", url = client.invitelink1)
@@ -19,7 +19,7 @@ def fsub_button(client, message):
         except IndexError:
 	    pass
 	return buttons
-    if FORCE_SUB_CHANNEL_1 and FORCE_SUB_CHANNEL_2 and not FORCE_SUB_CHANNEL_3 and not FORCE_SUB_CHANNEL_4
+    if FORCE_SUB_CHANNEL_1 and FORCE_SUB_CHANNEL_2 and not FORCE_SUB_CHANNEL_3 and not FORCE_SUB_CHANNEL_4:
 	buttons = [
 	    [
 	        InlineKeyboardButton(text = "• عضویت اول", url = client.invitelink1)
@@ -37,7 +37,7 @@ def fsub_button(client, message):
 	except IndexError:
 	    pass
 	return buttons
-    if FORCE_SUB_CHANNEL_1 and FORCE_SUB_CHANNEL_2 and FORCE_SUB_CHANNEL_3 and not FORCE_SUB_CHANNEL_4
+    if FORCE_SUB_CHANNEL_1 and FORCE_SUB_CHANNEL_2 and FORCE_SUB_CHANNEL_3 and not FORCE_SUB_CHANNEL_4:
         buttons = [
 	    [
 	        InlineKeyboardButton(text = "• عضویت اول", url = client.invitelink1)
@@ -58,7 +58,7 @@ def fsub_button(client, message):
 	except IndexError:
 	    pass
 	return buttons
-    if FORCE_SUB_CHANNEL_1 and FORCE_SUB_CHANNEL_2 and FORCE_SUB_CHANNEL_3 and FORCE_SUB_CHANNEL_4
+    if FORCE_SUB_CHANNEL_1 and FORCE_SUB_CHANNEL_2 and FORCE_SUB_CHANNEL_3 and FORCE_SUB_CHANNEL_4:
 	buttons = [
 	    [
 	        InlineKeyboardButton(text = "• عضویت اول", url = client.invitelink1)
