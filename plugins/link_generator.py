@@ -37,7 +37,7 @@ async def batch(client: Client, message: Message):
     base64_string = await encode(string)
     link = f"t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
-    await second_message.reply_text(f"🔗 لینک ایجاد شده برای فایل شما\n\n─═════─✦─═════─\n{link}", quote=True, reply_markup=reply_markup, disable_web_page_preview = True)
+    await second_message.reply_text(f"🔗 لینک ایجاد شده برای فایل شما\n\n─══════─✦─══════─\n{link}\n─══════─✦─══════─\n\n🆔️ @{client.username}", quote=True, reply_markup=reply_markup, disable_web_page_preview = True)
 
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('genlink'))
@@ -57,4 +57,4 @@ async def link_generator(client: Client, message: Message):
     base64_string = await encode(f"{(msg_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)}")
     link = f"t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
-    await channel_message.reply_text(f"🔗 لینک ایجاد شده برای فایل شما\n\n─═════─✦─═════─\n{link}", quote=True, reply_markup=reply_markup, disable_web_page_preview = True)
+    await channel_message.reply_text(f"🔗 لینک ایجاد شده برای فایل شما\n\n─══════─✦─══════─\n{link}\n─══════─✦─══════─\n\n🆔️ @{client.username}", quote=True, reply_markup=reply_markup, disable_web_page_preview = True)
