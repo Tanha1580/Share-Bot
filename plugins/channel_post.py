@@ -8,6 +8,7 @@ from pyrogram.errors import FloodWait
 from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, X_NUM
 from helper_func import encode, subscribed
+from channel_post import li_nk
 
 @Bot.on_message(filters.private & subscribed & ~filters.text & ~filters.sticker & ~filters.poll & ~filters.game)
 async def channel_post(client: Client, message: Message):
@@ -22,10 +23,11 @@ async def channel_post(client: Client, message: Message):
         await reply_text.edit_text("❗️مشکلی رخ داد !")
         return
     converted_id = (post_message.message_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)
-    id = message.from_user.id
+    id = (message.from_user.id)
     string = f"{id}-{converted_id}"
     base64_string = await encode(string)
     link = f"t.me/{client.username}?start={base64_string}"
+    li_nk = f"{link}"
 
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
 
@@ -41,10 +43,10 @@ async def new_post(client: Client, message: Message):
         return
 
     converted_id = (message.message_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)
-    id = message.from_user.id
+    id = (message.from_user.id)
     string = f"{id}-{converted_id}"
     base64_string = await encode(string)
-    link = f"t.me/{client.username}?start={base64_string}"
+    link = li_nk
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
     try:
         await message.edit_reply_markup(reply_markup)
