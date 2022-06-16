@@ -78,8 +78,13 @@ async def start_command(client: Client, message: Message):
                 reply_markup = None
 
             try:
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-                await asyncio.sleep(0.4)
+                font = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                await asyncio.sleep(0.5)
+                ms = await message.reply("پیام بالا تا 30 ثانیه دیگر پاک میشود. لطفا قبل از پاک شدن آن را در saved messages تلگرام خود ذخیره کنید.")
+                await asyncio.sleep(30)
+                await font.delete()
+                await asyncio.sleep(0.5)
+                await ms.delete()
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
