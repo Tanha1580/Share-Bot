@@ -41,8 +41,7 @@ async def new_post(client: Client, message: Message):
         return
 
     converted_id = (message.message_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)
-    id = (message.from_user.id)
-    string = f"{id}-{converted_id}"
+    string = f"a-{converted_id}"
     base64_string = await encode(string)
     link = f"t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
