@@ -33,8 +33,20 @@
       "description": "The static number",
       "value": "7"
     },
-    "FORCE_SUB_CHANNEL":{
-      "description": "id of the channel or group, if you want enable force sub feature else put 0",
+    "FORCE_SUB_CHANNEL_1":{
+      "description": "id of the first channel or group, if you want enable force sub feature else put 0",
+      "value": "0"
+    },
+    "FORCE_SUB_CHANNEL_2":{
+      "description": "id of the second channel or group, if you want enable force sub feature else put 0",
+      "value": "0"
+    },
+    "FORCE_SUB_CHANNEL_3":{
+      "description": "id of the third channel or group, if you want enable force sub feature else put 0",
+      "value": "0"
+    },
+    "FORCE_SUB_CHANNEL_4":{
+      "description": "id of the fourth channel or group, if you want enable force sub feature else put 0",
       "value": "0"
     },
     "START_MESSAGE": {
@@ -47,7 +59,7 @@
     },
     "FORCE_SUB_MESSAGE": {
       "description": "Optional: Force Sub message of bot, use HTML parsemode format",
-      "value": "⚜ کاربر گرامی\n\n\n◄ جهت استفاده از ربات، در کانال زیر عضو شوید."
+      "value": "⚜ کاربر گرامی\n\n\n◄ جهت استفاده از ربات، در کانال‌های زیر عضو شوید."
     },
     "ADMINS": {
       "description": "A space separated list of user_ids of Admins, they can only create links",
