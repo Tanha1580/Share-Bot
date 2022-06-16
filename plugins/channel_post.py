@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait
 from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, X_NUM
 from helper_func import encode, subscribed
-from channel_post import li_nk
+from plugins.channel_post import li_nk
 
 @Bot.on_message(filters.private & subscribed & ~filters.text & ~filters.sticker & ~filters.poll & ~filters.game)
 async def channel_post(client: Client, message: Message):
