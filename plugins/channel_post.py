@@ -7,9 +7,9 @@ from pyrogram.errors import FloodWait
 
 from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, X_NUM
-from helper_func import encode
+from helper_func import encode, subscribed
 
-@Bot.on_message(filters.private & ~filters.text & ~filters.sticker & ~filters.poll & ~filters.game)
+@Bot.on_message(filters.private & subscribed & ~filters.photo & ~filters.text & ~filters.sticker & ~filters.poll & ~filters.game)
 async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("⏳ لطفا صبر کنید ...", quote = True)
     try:
