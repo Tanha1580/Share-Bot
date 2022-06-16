@@ -79,23 +79,27 @@ async def start_command(client: Client, message: Message):
 
             try:
                 font = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-                await asyncio.sleep(1)
+                await asyncio.sleep(0.3)
                 ms = await message.reply("پیام بالا تا 30 ثانیه دیگر پاک میشود. لطفا قبل از پاک شدن آن را در saved messages تلگرام خود ذخیره کنید.")
                 await asyncio.sleep(30)
                 await font.delete()
-                await asyncio.sleep(1)
+                await asyncio.sleep(0.2)
                 await ms.delete()
-                await message.reply("پیام حذف شد.")
+                fd = await message.reply("پیام حذف شد.")
+                await asyncio.sleep(15)
+                await fd.delete()
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 fontt = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-                await asyncio.sleep(1)
+                await asyncio.sleep(0.3)
                 mss = await message.reply("پیام بالا تا 30 ثانیه دیگر پاک میشود. لطفا قبل از پاک شدن آن را در saved messages تلگرام خود ذخیره کنید.")
                 await asyncio.sleep(30)
                 await fontt.delete()
-                await asyncio.sleep(1)
+                await asyncio.sleep(0.2)
                 await mss.delete()
-                await message.reply("پیام حذف شد.")
+                fdd = await message.reply("پیام حذف شد.")
+                await asyncio.sleep(15)
+                await fdd.delete()
             except:
                 pass
         return
