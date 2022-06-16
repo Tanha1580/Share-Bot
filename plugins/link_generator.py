@@ -33,7 +33,7 @@ async def batch(client: Client, message: Message):
             continue
 
 
-    string = f"{(f_msg_id * int(str(abs(client.db_channel.id))[8:]) + X_NUM)}-{(s_msg_id * int(str(abs(client.db_channel.id))[8:]) + X_NUM)}"
+    string = f"a-{(f_msg_id * int(str(abs(client.db_channel.id))[8:]) + X_NUM)}-{(s_msg_id * int(str(abs(client.db_channel.id))[8:]) + X_NUM)}"
     base64_string = await encode(string)
     link = f"t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
