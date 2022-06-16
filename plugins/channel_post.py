@@ -11,6 +11,7 @@ from helper_func import encode, subscribed
 
 @Bot.on_message(filters.private & subscribed & ~filters.text & ~filters.sticker & ~filters.poll & ~filters.game)
 async def channel_post(client: Client, message: Message):
+    userid = message.from.user_id
     reply_text = await message.reply_text("⏳ لطفا صبر کنید ...", quote = True)
     try:
         post_message = await message.copy(chat_id = client.db_channel.id, disable_notification=True)
@@ -22,7 +23,8 @@ async def channel_post(client: Client, message: Message):
         await reply_text.edit_text("❗️مشکلی رخ داد !")
         return
     converted_id = (post_message.message_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)
-    string = f"{converted_id}"
+    userid = (message.from.user_id)
+    string = f"{userid}-{converted_id}"
     base64_string = await encode(string)
     link = f"t.me/{client.username}?start={base64_string}"
 
@@ -40,7 +42,8 @@ async def new_post(client: Client, message: Message):
         return
 
     converted_id = (message.message_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)
-    string = f"{converted_id}"
+    userid = (message.from.user_id)
+    string = f"{userid}-{converted_id}"
     base64_string = await encode(string)
     link = f"t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
