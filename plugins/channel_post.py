@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait
 from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, X_NUM
 from helper_func import encode, subscribed
-from plugins.channel_post import li_nk
+from plugins.channel_poost import l_ink
 
 @Bot.on_message(filters.private & subscribed & ~filters.text & ~filters.sticker & ~filters.poll & ~filters.game)
 async def channel_post(client: Client, message: Message):
@@ -46,7 +46,7 @@ async def new_post(client: Client, message: Message):
     id = (message.from_user.id)
     string = f"{id}-{converted_id}"
     base64_string = await encode(string)
-    link = li_nk
+    link = l_ink
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
     try:
         await message.edit_reply_markup(reply_markup)
