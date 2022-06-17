@@ -213,7 +213,4 @@ async def id_command(client: Client, message: Message):
                 user = [int(argument[0])]
             except:
                 return
-        except:
-            await message.reply_text("❗️مشکلی رخ داد !")
-            return
     await message.reply(f"🆔 آیدی صاحب پیام: <code>{user}</code>", quote = True)
