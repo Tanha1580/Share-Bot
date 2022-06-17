@@ -57,14 +57,6 @@
       "description": "if you want your third sub link be requistment link, put the channel id in here",
       "value": "0"
     },
-    "FORCE_SUB_CHANNEL_4":{
-      "description": "id of the fourth channel or group, if you want enable force sub feature else put 0",
-      "value": "0"
-    },
-    "FORCE_CHANNEL_REQUEST_4":{
-      "description": "if you want your fourth sub link be requistment link, put the channel id in here",
-      "value": "0"
-    },
     "START_MESSAGE": {
       "description": "Optional: start message of bot, use HTML parsemode format",
       "value": "👋 سلام [ {mention} ] عزیز 🌹\n\n\n🆔 شناسۀ کاربری شما: <code>{id}</code>"
