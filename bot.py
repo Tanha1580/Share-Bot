@@ -153,8 +153,3 @@ class Bot(Client):
     async def stop(self, *args):
         await super().stop()
         self.LOGGER(__name__).info("Bot stopped.")
-
-self.invitelink1 = invite_link1
-self.invitelink2 = invite_link2
-self.invitelink3 = invite_link3
-self.invitelink4 = invite_link4
