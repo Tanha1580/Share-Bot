@@ -53,8 +53,7 @@ class Bot(Client):
                     sys.exit()
 
         if FORCE_SUB_CHANNEL_2:
-             try:
-               if REQUEST_2 == True:
+            if REQUEST_2 == True:
                 try:
                     link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_2, creates_join_request = True)).invite_link
                     if not link:
