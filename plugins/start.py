@@ -196,7 +196,8 @@ async def send_text(client: Bot, message: Message):
 @Bot.on_message(filters.private & filters.command('id') & filters.user(ADMINS))
 async def id_command(client: Client, message: Message):
     text = message.text
-    if len(text)>4:
+    text = message.text
+    if len(text)>7:
         try:
             base64_string = text.split(" ", 1)[1]
         except:
@@ -205,11 +206,23 @@ async def id_command(client: Client, message: Message):
         argument = string.split("-")
         if len(argument) == 3:
             try:
-                us_er = [int(argument[0])]
+                start = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[8:]))
+                end = int((int(argument[2]) - X_NUM) / int(str(abs(client.db_channel.id))[8:]))
+            except:
+                return
+            if start <= end:
+                ids = range(start,end+1)
+            else:
+                ids = []
+                i = start
+                while True:
+                    ids.append(i)
+                    i -= 1
+                    if i < end:
+                        break
         elif len(argument) == 2:
             try:
-                us_er = [int(argument[0])]
+                ids = [int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[6:]))]
             except:
-                await message.reply("❗️مشکلی رخ داد !")
                 return
     await message.reply(f"آیدی صاحب پیام: <code>{us_er}</code>", quote = True)
