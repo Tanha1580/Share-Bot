@@ -166,8 +166,9 @@ async def id_command(client: Client, message: Message):
                 us_er = [int(argument[0])]
         except:
             await message.reply("❗️مشکلی رخ داد !")
-        return
-    await message.reply(f"آیدی صاحب پیام: <code>{us_er}</code>", quote = True)
+            return
+        await message.reply(f"آیدی صاحب پیام: <code>{us_er}</code>", quote = True)
+            return
 
 @Bot.on_message(filters.private & filters.command('broadcast') & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
