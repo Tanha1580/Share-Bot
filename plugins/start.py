@@ -167,7 +167,6 @@ async def id_command(client: Client, message: Message):
         except:
             await message.reply("❗️مشکلی رخ داد !")
             return
-
     await message.reply(f"آیدی صاحب پیام: <code>{us_er}</code>", quote = True)
 
 @Bot.on_message(filters.private & filters.command('broadcast') & filters.user(ADMINS))
