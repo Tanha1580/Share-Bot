@@ -213,4 +213,6 @@ async def id_command(client: Client, message: Message):
                 user = argument[0]
             except:
                 return
-    await message.reply(f"🆔 آیدی صاحب پیام: <code>{user}</code>", quote = True)
+    await message.reply(f"🆔 آیدی عددی صاحب پیام :\n\n[ <code>{user}</code> ]", quote = True)
+    else:
+        await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /id همراه با شناسه فایل استفاده کنید\n\nمثال:\n/id RXhhbXBsZS0xMjM0", quote = True)
