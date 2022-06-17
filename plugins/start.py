@@ -205,12 +205,12 @@ async def id_command(client: Client, message: Message):
         argument = string.split("-")
         if len(argument) == 3:
             try:
-                user = [int(argument[0])]
+                user = argument[0]
             except:
                 return
         elif len(argument) == 2:
             try:
-                user = [int(argument[0])]
+                user = argument[0]
             except:
                 return
     await message.reply(f"🆔 آیدی صاحب پیام: <code>{user}</code>", quote = True)
