@@ -28,7 +28,7 @@ class Bot(Client):
             try:
                 link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True)).invite_link
                 if not link:
-                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True)
+                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True, member_limit = 1)
                     link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True)).invite_link
                 self.reinvitelink1 = link
             except Exception as a:
@@ -56,7 +56,7 @@ class Bot(Client):
             try:
                 link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True)).invite_link
                 if not link:
-                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True)
+                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True, member_limit = 1)
                     link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True)).invite_link
                 self.reinvitelink2 = link
             except Exception as a:
@@ -84,7 +84,7 @@ class Bot(Client):
             try:
                 link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True)).invite_link
                 if not link:
-                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True)
+                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True, member_limit = 1)
                     link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True)).invite_link
                 self.reinvitelink3 = link
             except Exception as a:
