@@ -38,23 +38,23 @@
       "value": "0"
     },
     "FORCE_CHANNEL_REQUEST_1":{
-      "description": "if you want your first sub link be requistment link, the channel id in here",
+      "description": "if you want your first sub link be requistment link, put the channel/group id in here and "0" in FORCE_SUB_CHANNEL_1",
       "value": "0"
     },
     "FORCE_SUB_CHANNEL_2":{
-      "description": "id of the second channel or group, if you want enable force sub feature else put 0",
+      "description": "id of the second channel/group, if you want enable force sub feature else put 0",
       "value": "0"
     },
     "FORCE_CHANNEL_REQUEST_2":{
-      "description": "if you want your second sub link be requistment link, the channel id in here",
+      "description": "if you want your second sub link be requistment link, put the channel/group id in here and "0" in FORCE_SUB_CHANNEL_2",
       "value": "0"
     },
     "FORCE_SUB_CHANNEL_3":{
-      "description": "id of the third channel or group, if you want enable force sub feature else put 0",
+      "description": "id of the third channel/group, if you want enable force sub feature else put 0",
       "value": "0"
     },
     "FORCE_CHANNEL_REQUEST_3":{
-      "description": "if you want your third sub link be requistment link, put the channel id in here",
+      "description": "if you want your third sub link be requistment link, put the channel/group id in here and "0" in FORCE_SUB_CHANNEL_3",
       "value": "0"
     },
     "START_MESSAGE": {
