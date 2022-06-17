@@ -148,6 +148,28 @@ async def get_users(client: Bot, message: Message):
     users = await full_userbase()
     await msg.edit(f"👤 {len(users)} نفر از ربات استفاده می‌کنند.")
 
+@Bot.on_message(filters.private & filters.command('id') & filters.user(ADMINS))
+async def id_command(client: Client, message: Message):
+    text = message.text
+    if len(text)>4:
+        try:
+            base64_string = text.split(" ", 1)[1]
+        except:
+            return
+        string = await decode(base64_string)
+        argument = string.split("-")
+        if len(argument) == 3:
+            try:
+                us_er = [int(argument[0])]
+        elif len(argument) == 2:
+            try:
+                us_er = [int(argument[0])]
+        except:
+            await message.reply("❗️مشکلی رخ داد !")
+            return
+
+    await message.reply(f"آیدی صاحب پیام: <code>{us_er}</code>", quote = True)
+
 @Bot.on_message(filters.private & filters.command('broadcast') & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
     if message.reply_to_message:
