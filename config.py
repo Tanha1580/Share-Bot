@@ -27,15 +27,12 @@ DB_URI = os.environ.get("DATABASE_URL", "")
 FORCE_SUB_CHANNEL_1 = int(os.environ.get("FORCE_SUB_CHANNEL_1", "0"))
 FORCE_SUB_CHANNEL_2 = int(os.environ.get("FORCE_SUB_CHANNEL_2", "0"))
 FORCE_SUB_CHANNEL_3 = int(os.environ.get("FORCE_SUB_CHANNEL_3", "0"))
-
-#force sub channel requestment link
-FORCE_SUB_CHANNEL_REQUEST_1 = int(os.environ.get("FORCE_CHANNEL_REQUEST_1", "0")) 
-FORCE_SUB_CHANNEL_REQUEST_2 = int(os.environ.get("FORCE_CHANNEL_REQUEST_2", "0"))
-FORCE_SUB_CHANNEL_REQUEST_3 = int(os.environ.get("FORCE_CHANNEL_REQUEST_3", "0"))
+FORCE_SUB_CHANNEL_4 = int(os.environ.get("FORCE_SUB_CHANNEL_4", "0"))
 
 CUSTOM_LINK_1 = os.environ.get("CUSTOM_LINK_1", "")
 CUSTOM_LINK_2 = os.environ.get("CUSTOM_LINK_2", "")
 CUSTOM_LINK_3 = os.environ.get("CUSTOM_LINK_3", "")
+CUSTOM_LINK_4 = os.environ.get("CUSTOM_LINK_4", "")
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
