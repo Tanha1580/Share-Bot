@@ -206,6 +206,7 @@ async def id_command(client: Client, message: Message):
         if len(argument) == 3:
             try:
                 us_er = [int(argument[0])]
+
         elif len(argument) == 2:
             try:
                 us_er = [int(argument[0])]
