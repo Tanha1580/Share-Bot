@@ -25,7 +25,7 @@ class Bot(Client):
         usr_bot_me = await self.get_me()
 
         if FORCE_SUB_CHANNEL_1:
-            if REQUEST_1 == True
+            if REQUEST_1 == True:
                 try:
                     link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_1, creates_join_request = True)).invite_link
                     if not link:
@@ -38,7 +38,7 @@ class Bot(Client):
                     self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_1 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current First Force Sub Channel Value: {FORCE_SUB_CHANNEL_1}")
                     self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
                     sys.exit()
-            elif REQUEST_1 == False
+            elif REQUEST_1 == False:
                 try:
                     link = (await self.get_chat(FORCE_SUB_CHANNEL_1)).invite_link
                     if not link:
@@ -54,7 +54,7 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL_2:
              try:
-               if REQUEST_2 == True
+               if REQUEST_2 == True:
                 try:
                     link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_2, creates_join_request = True)).invite_link
                     if not link:
@@ -67,7 +67,7 @@ class Bot(Client):
                     self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_1 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current First Force Sub Channel Value: {FORCE_SUB_CHANNEL_1}")
                     self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
                     sys.exit()
-            elif REQUEST_2 == False
+            elif REQUEST_2 == False:
                 try:
                     link = (await self.get_chat(FORCE_SUB_CHANNEL_2)).invite_link
                     if not link:
@@ -82,7 +82,7 @@ class Bot(Client):
                     sys.exit()
 
         if FORCE_SUB_CHANNEL_3:
-            if REQUEST_3 == True
+            if REQUEST_3 == True:
                 try:
                     link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_3, creates_join_request = True)).invite_link
                     if not link:
@@ -95,7 +95,7 @@ class Bot(Client):
                     self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_1 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current First Force Sub Channel Value: {FORCE_SUB_CHANNEL_1}")
                     self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
                     sys.exit()
-            elif REQUEST_3 == False
+            elif REQUEST_3 == False:
                 try:
                     link = (await self.get_chat(FORCE_SUB_CHANNEL_3)).invite_link
                     if not link:
@@ -110,7 +110,7 @@ class Bot(Client):
                     sys.exit()
 
         if FORCE_SUB_CHANNEL_4:
-            if REQUEST_4 == True
+            if REQUEST_4 == True:
                 try:
                     link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_4, creates_join_request = True)).invite_link
                     if not link:
@@ -123,7 +123,7 @@ class Bot(Client):
                     self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_1 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current First Force Sub Channel Value: {FORCE_SUB_CHANNEL_1}")
                     self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
                     sys.exit()
-            elif REQUEST_4 == False
+            elif REQUEST_4 == False:
                 try:
                     link = (await self.get_chat(FORCE_SUB_CHANNEL_4)).invite_link
                     if not link:
