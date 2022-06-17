@@ -27,20 +27,9 @@ class Bot(Client):
         await super().start()
         usr_bot_me = await self.get_me()
 
-        if FORCE_SUB_CHANNEL_REQUEST_1:
-            try:
-                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True, expire_date = 165549000)).invite_link
-                if not link:
-                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True, expire_date = 165549000)
-                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True, expire_date = 165549000)).invite_link
-                self.reinvitelink1 = link
-            except Exception as a:
-                self.LOGGER(__name__).warning(a)
-                self.LOGGER(__name__).warning("Bot can't Create Request Invite link from First Force Sub Channel!")
-                self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_REQUEST_1 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current First Force Sub Channel Value: {FORCE_SUB_CHANNEL_REQUEST_1}")
-                self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
-                sys.exit()
-
+        if CUSTOM_LINK1:
+           FORCE_SUB_CHANNEL_1 = CUSTOM_LINK_1
+        else:
         if FORCE_SUB_CHANNEL_1:
             try:
                 link = (await self.get_chat(FORCE_SUB_CHANNEL_1)).invite_link
