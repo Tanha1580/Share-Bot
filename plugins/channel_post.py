@@ -7,7 +7,7 @@ from pyrogram.errors import FloodWait
 
 from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, X_NUM
-from helper_func import encode, subscribed, subch1, subch2, subch3, subch4
+from helper_func import encode, subscribed, subch1, subch2, subch3
 
 @Bot.on_message(filters.private & subscribed & subch1 & subch2 & subch3 & ~filters.text & ~filters.sticker & ~filters.poll & ~filters.game)
 async def channel_post(client: Client, message: Message):
