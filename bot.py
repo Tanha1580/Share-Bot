@@ -29,10 +29,10 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL_REQUEST_1:
             try:
-                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True, expire_date = 300)).invite_link
+                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True, expire_date = 165549000)).invite_link
                 if not link:
-                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True, expire_date = 300)
-                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True, expire_date = 300)).invite_link
+                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True, expire_date = 165549000)
+                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_1, creates_join_request = True, expire_date = 165549000)).invite_link
                 self.reinvitelink1 = link
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
@@ -57,10 +57,10 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL_REQUEST_2:
             try:
-                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True, expire_date = 300)).invite_link
+                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True, expire_date = 165549000)).invite_link
                 if not link:
-                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True, expire_date = 300)
-                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True, expire_date = 300)).invite_link
+                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True, expire_date = 165549000)
+                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True, expire_date = 165549000)).invite_link
                 self.reinvitelink2 = link
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
@@ -85,10 +85,10 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL_REQUEST_3:
             try:
-                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True, expire_date = 300)).invite_link
+                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True, expire_date = 165549000)).invite_link
                 if not link:
-                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True, expire_date = 300)
-                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True, expire_date = 300)).invite_link
+                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True, expire_date = 165549000)
+                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True, expire_date = 165549000)).invite_link
                 self.reinvitelink3 = link
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
