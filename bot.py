@@ -51,7 +51,7 @@ class Bot(Client):
                     self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL}")
                     self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
                     sys.exit()
-            self.invitelink1 = self.invite_link1
+            self.invitelink1 = link
 
         if FORCE_SUB_CHANNEL_2:
             if REQUEST_2 == True:
@@ -80,7 +80,7 @@ class Bot(Client):
                     self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL}")
                     self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
                     sys.exit()
-            self.invitelink2 = self.invite_link2
+            self.invitelink2 = link
 
         if FORCE_SUB_CHANNEL_3:
             if REQUEST_3 == True:
@@ -109,7 +109,7 @@ class Bot(Client):
                     self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL}")
                     self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
                     sys.exit()
-            self.invitelink3 = self.invite_link3
+            self.invitelink3 = link
 
         if FORCE_SUB_CHANNEL_4:
             if REQUEST_4 == True:
@@ -138,7 +138,7 @@ class Bot(Client):
                     self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL}")
                     self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
                     sys.exit()
-            self.invitelink4 = self.invite_link4
+            self.invitelink4 = link
         try:
             db_channel = await self.get_chat(CHANNEL_ID)
             self.db_channel = db_channel
