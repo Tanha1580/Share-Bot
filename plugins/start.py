@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from bot import Bot
 from config import ADMINS, FORCE_MSG, START_MSG, OWNER_ID, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, X_NUM
 from .button import fsub_button
-from helper_func import subscribed, subch1, subch2, subch3, subch4, encode, decode, get_messages
+from helper_func import subscribed, subch1, subch2, subch3, encode, decode, get_messages
 from database.sql import add_user, query_msg, full_userbase
 
 
@@ -21,7 +21,7 @@ REPLY_ERROR = """📢 اطلاع‌رسانی\n\nروی پیام مورد نظر
 #=====================================================================================##
 
 
-@Bot.on_message(filters.command('start') & filters.private & subscribed & subch1 & subch2 & subch3 & subch4)
+@Bot.on_message(filters.command('start') & filters.private & subscribed & subch1 & subch2 & subch3)
 async def start_command(client: Client, message: Message):
     id = message.from_user.id
     user_name = '@' + message.from_user.username if message.from_user.username else None
