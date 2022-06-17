@@ -63,7 +63,7 @@ async def is_subch4(filter, client, update):
     if user_id in ADMINS:
         return True
     try:
-        member = await client.get_chat_member(chat_id = FORCE_SUB_CHANNEL_1, user_id = user_id)
+        member = await client.get_chat_member(chat_id = FORCE_SUB_CHANNEL_4, user_id = user_id)
     except UserNotParticipant:
         return False
 
@@ -94,6 +94,10 @@ async def is_subscribed(filter, client, update):
         return False
     try:
         member = await client.get_chat_member(chat_id = FORCE_SUB_CHANNEL_3, user_id = user_id)
+    except UserNotParticipant:
+        return False
+    try:
+        member = await client.get_chat_member(chat_id = FORCE_SUB_CHANNEL_4, user_id = user_id)
     except UserNotParticipant:
         return False
 
