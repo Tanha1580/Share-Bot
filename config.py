@@ -33,6 +33,10 @@ FORCE_SUB_CHANNEL_REQUEST_1 = int(os.environ.get("FORCE_CHANNEL_REQUEST_1", "0")
 FORCE_SUB_CHANNEL_REQUEST_2 = int(os.environ.get("FORCE_CHANNEL_REQUEST_2", "0"))
 FORCE_SUB_CHANNEL_REQUEST_3 = int(os.environ.get("FORCE_CHANNEL_REQUEST_3", "0"))
 
+CUSTOM_LINK_1 = os.environ.get("CUSTOM_LINK_1", "")
+CUSTOM_LINK_2 = os.environ.get("CUSTOM_LINK_2", "")
+CUSTOM_LINK_3 = os.environ.get("CUSTOM_LINK_3", "")
+
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 #start message
