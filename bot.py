@@ -7,7 +7,7 @@ from time import time
 from pyrogram import Client
 import sys
 
-from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL_1, FORCE_SUB_CHANNEL_2, FORCE_SUB_CHANNEL_3, FORCE_SUB_CHANNEL_REQUEST_1, FORCE_SUB_CHANNEL_REQUEST_2, FORCE_SUB_CHANNEL_REQUEST_3, CHANNEL_ID
+from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL_1, FORCE_SUB_CHANNEL_2, FORCE_SUB_CHANNEL_3, FORCE_SUB_CHANNEL_REQUEST_1, FORCE_SUB_CHANNEL_REQUEST_2, FORCE_SUB_CHANNEL_REQUEST_3, CUSTOM_LINK_1, CUSTOM_LINK_2, CUSTOM_LINK_3, CHANNEL_ID
 
 class Bot(Client):
     def __init__(self):
@@ -27,8 +27,8 @@ class Bot(Client):
         await super().start()
         usr_bot_me = await self.get_me()
 
-        if CUSTOM_LINK1:
-           FORCE_SUB_CHANNEL_1 = CUSTOM_LINK_1
+        if CUSTOM_LINK_1:
+           self.invitelink1 = CUSTOM_LINK_1
         else:
         if FORCE_SUB_CHANNEL_1:
             try:
@@ -44,20 +44,9 @@ class Bot(Client):
                 self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
                 sys.exit()
 
-        if FORCE_SUB_CHANNEL_REQUEST_2:
-            try:
-                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True, expire_date = 165549000)).invite_link
-                if not link:
-                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True, expire_date = 165549000)
-                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_2, creates_join_request = True, expire_date = 165549000)).invite_link
-                self.reinvitelink2 = link
-            except Exception as a:
-                self.LOGGER(__name__).warning(a)
-                self.LOGGER(__name__).warning("Bot can't Create Request Invite link from Second Force Sub Channel!")
-                self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_REQUEST_2 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current First Force Sub Channel Value: {FORCE_SUB_CHANNEL_REQUEST_2}")
-                self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
-                sys.exit()
-
+        if CUSTOM_LINK_2:
+           self.invitelink2 = CUSTOM_LINK_2
+        else:
         if FORCE_SUB_CHANNEL_2:
             try:
                 link = (await self.get_chat(FORCE_SUB_CHANNEL_2)).invite_link
@@ -72,20 +61,9 @@ class Bot(Client):
                 self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
                 sys.exit()
 
-        if FORCE_SUB_CHANNEL_REQUEST_3:
-            try:
-                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True, expire_date = 165549000)).invite_link
-                if not link:
-                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True, expire_date = 165549000)
-                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_REQUEST_3, creates_join_request = True, expire_date = 165549000)).invite_link
-                self.reinvitelink3 = link
-            except Exception as a:
-                self.LOGGER(__name__).warning(a)
-                self.LOGGER(__name__).warning("Bot can't Create Invite link from Third Force Sub Channel!")
-                self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_REQUEST_3 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current First Force Sub Channel Value: {FORCE_SUB_CHANNEL_REQUEST_3}")
-                self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
-                sys.exit()
-
+        if CUSTOM_LINK_3:
+           self.invitelink3 = CUSTOM_LINK_3
+        else:
         if FORCE_SUB_CHANNEL_3:
             try:
                 link = (await self.get_chat(FORCE_SUB_CHANNEL_3)).invite_link
