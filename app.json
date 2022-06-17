@@ -57,6 +57,21 @@
       "description": "if you want your third sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_3",
       "value": "0"
     },
+    "CUSTOM_LINK_1":{
+      "description": "if you want your first sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_1",
+      "value": ""
+      "required": false
+    },
+    "CUSTOM_LINK_2":{
+      "description": "if you want your first sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_1",
+      "value": ""
+      "required": false
+    },
+    "CUSTOM_LINK_3":{
+      "description": "if you want your first sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_1",
+      "value": ""
+      "required": false
+    },
     "START_MESSAGE": {
       "description": "Optional: start message of bot, use HTML parsemode format",
       "value": "👋 سلام [ {mention} ] عزیز 🌹\n\n\n🆔 شناسۀ کاربری شما: <code>{id}</code>"
