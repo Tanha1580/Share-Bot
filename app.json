@@ -59,17 +59,17 @@
     },
     "CUSTOM_LINK_1":{
       "description": "if you wnt your first sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_1",
-      "value": ""
+      "value": "",
       "required": false
     },
     "CUSTOM_LINK_2":{
       "description": "if yu wnt your first sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_1",
-      "value": ""
+      "value": "",
       "required": false
     },
     "CUSTOM_LINK_3":{
       "description": "if you wnt yur first sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_1",
-      "value": ""
+      "value": "",
       "required": false
     },
     "START_MESSAGE": {
