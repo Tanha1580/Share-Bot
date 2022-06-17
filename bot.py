@@ -38,7 +38,6 @@ class Bot(Client):
                     self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_1 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current First Force Sub Channel Value: {FORCE_SUB_CHANNEL_1}")
                     self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
                     sys.exit()
-                except:
                     return
             elif REQUEST_1 = False
                 try:
