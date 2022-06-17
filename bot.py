@@ -8,7 +8,7 @@ from pyrogram import Client
 import sys
 
 from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL_1, FORCE_SUB_CHANNEL_2, FORCE_SUB_CHANNEL_3, FORCE_SUB_CHANNEL_REQUEST_1, FORCE_SUB_CHANNEL_REQUEST_2, FORCE_SUB_CHANNEL_REQUEST_3, CHANNEL_ID
-
+from ti_me import st, fh
 
 class Bot(Client):
     def __init__(self):
@@ -27,8 +27,6 @@ class Bot(Client):
     async def start(self):
         await super().start()
         usr_bot_me = await self.get_me()
-        st = int(time.time())
-        fh = int(time.time() + 43200)
 
         if FORCE_SUB_CHANNEL_REQUEST_1:
             try:
