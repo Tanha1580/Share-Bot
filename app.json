@@ -37,38 +37,35 @@
       "description": "id of the first channel/group, if you want enable force sub feature else put 0",
       "value": "0"
     },
-    "FORCE_CHANNEL_REQUEST_1":{
-      "description": "if you want your first sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_1",
-      "value": "0"
-    },
     "FORCE_SUB_CHANNEL_2":{
       "description": "id of the second channel/group, if you want enable force sub feature else put 0",
-      "value": "0"
-    },
-    "FORCE_CHANNEL_REQUEST_2":{
-      "description": "if you want your second sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_2",
       "value": "0"
     },
     "FORCE_SUB_CHANNEL_3":{
       "description": "id of the third channel/group, if you want enable force sub feature else put 0",
       "value": "0"
     },
-    "FORCE_CHANNEL_REQUEST_3":{
-      "description": "if you want your third sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_3",
+    "FORCE_SUB_CHANNEL_4":{
+      "description": "id of the Forth Channel/Group, if you want enable force sub feature else put 0",
       "value": "0"
     },
     "CUSTOM_LINK_1":{
-      "description": "if you wnt your first sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_1",
+      "description": "you can put your custom link(like request_link) in here for Channel/Group 1",
       "value": "",
       "required": false
     },
     "CUSTOM_LINK_2":{
-      "description": "if yu wnt your first sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_1",
+      "description": "you can put your custom link(like request_link) in here for Channel/Group 2",
       "value": "",
       "required": false
     },
     "CUSTOM_LINK_3":{
-      "description": "if you wnt yur first sub link be requistment link, put the channel/group id in here and '0' in FORCE_SUB_CHANNEL_1",
+      "description": "you can put your custom link(like request_link) in here for Channel/Group 3",
+      "value": "",
+      "required": false
+    },
+    "CUSTOM_LINK_4":{
+      "description": "you can put your custom link(like request_link) in here for Channel/Group 4",
       "value": "",
       "required": false
     },
