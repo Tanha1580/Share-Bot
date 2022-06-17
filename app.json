@@ -34,20 +34,36 @@
       "value": "7"
     },
     "FORCE_SUB_CHANNEL_1":{
-      "description": "id of the first channel or group, if you want enable force sub feature else put 0",
+      "description": "id of the first channel/group, if you want enable force sub feature else put 0",
       "value": "0"
+    },
+    "FORCE_CHANNEL_Link_1":{
+      "description": "if you want your first sub link be requistment link, put 'True'",
+      "value": "False"
     },
     "FORCE_SUB_CHANNEL_2":{
       "description": "id of the second channel or group, if you want enable force sub feature else put 0",
       "value": "0"
     },
+    "FORCE_CHANNEL_Link_2":{
+      "description": "if you want your second sub link be requistment link, put 'True'",
+      "value": "False"
+    },
     "FORCE_SUB_CHANNEL_3":{
       "description": "id of the third channel or group, if you want enable force sub feature else put 0",
       "value": "0"
     },
+    "FORCE_CHANNEL_Link_3":{
+      "description": "if you want your third sub link be requistment link, put 'True'",
+      "value": "False"
+    },
     "FORCE_SUB_CHANNEL_4":{
       "description": "id of the fourth channel or group, if you want enable force sub feature else put 0",
       "value": "0"
+    },
+    "FORCE_CHANNEL_Link_4":{
+      "description": "if you want your fourth sub link be requistment link, put 'True'",
+      "value": "False"
     },
     "START_MESSAGE": {
       "description": "Optional: start message of bot, use HTML parsemode format",
