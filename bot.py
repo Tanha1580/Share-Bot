@@ -4,7 +4,7 @@ import pyromod.listen
 from pyrogram import Client
 import sys
 
-from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL_1, FORCE_SUB_CHANNEL_2, FORCE_SUB_CHANNEL_3, FORCE_SUB_CHANNEL_4, CHANNEL_ID
+from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL_1, FORCE_SUB_CHANNEL_2, FORCE_SUB_CHANNEL_3, FORCE_SUB_CHANNEL_4, CHANNEL_ID, REQUEST_1, REQUEST_2, REQUEST_3, REQUEST_4
 
 class Bot(Client):
     def __init__(self):
@@ -26,10 +26,10 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL_1:
             try:
-                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_1, creates_join_request = True)).invite_link
+                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_1, creates_join_request=REQUEST_1)).invite_link
                 if not link:
-                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_1, creates_join_request = True)
-                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_1, creates_join_request = True)).invite_link
+                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_1, creates_join_request=REQUEST_1)
+                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_1, creates_join_request=REQUEST_1)).invite_link
                 self.invitelink1 = link
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
@@ -40,10 +40,10 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL_2:
             try:
-                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_2, creates_join_request = True)).invite_link
+                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_2, creates_join_request=REQUEST_2)).invite_link
                 if not link:
-                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_2, creates_join_request = True)
-                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_2, creates_join_request = True)).invite_link
+                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_2, creates_join_request=REQUEST_2)
+                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_2, creates_join_request=REQUEST_2)).invite_link
                 self.invitelink2 = link
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
@@ -54,10 +54,10 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL_3:
             try:
-                link = (await self.get_chat(FORCE_SUB_CHANNEL_3)).invite_link
+                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_3, creates_join_request=REQUEST_3)).invite_link
                 if not link:
-                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL_3)
-                    link = (await self.get_chat(FORCE_SUB_CHANNEL_3)).invite_link
+                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_3, creates_join_request=REQUEST_3)
+                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_3, creates_join_request=REQUEST_3)).invite_link
                 self.invitelink3 = link
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
@@ -68,10 +68,10 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL_4:
             try:
-                link = (await self.get_chat(FORCE_SUB_CHANNEL_4)).invite_link
+                link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_4, creates_join_request=REQUEST_4)).invite_link
                 if not link:
-                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL_4)
-                    link = (await self.get_chat(FORCE_SUB_CHANNEL_4)).invite_link
+                    await self.create_chat_invite_link(FORCE_SUB_CHANNEL_4, creates_join_request=REQUEST_4)
+                    link = (await self.create_chat_invite_link(FORCE_SUB_CHANNEL_4, creates_join_request=REQUEST_4)).invite_link
                 self.invitelink4 = link
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
