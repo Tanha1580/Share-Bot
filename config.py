@@ -29,11 +29,11 @@ FORCE_SUB_CHANNEL_2 = int(os.environ.get("FORCE_SUB_CHANNEL_2", "0"))
 FORCE_SUB_CHANNEL_3 = int(os.environ.get("FORCE_SUB_CHANNEL_3", "0"))
 FORCE_SUB_CHANNEL_4 = int(os.environ.get("FORCE_SUB_CHANNEL_4", "0"))
 
-#force sub channel requerment link
-REQUEST_1 = os.environ.get("FORCE_CHANNEL_Link_1", "") 
-REQUEST_2 = os.environ.get("FORCE_CHANNEL_Link_2", "")
-REQUEST_3 = os.environ.get("FORCE_CHANNEL_Link_3", "")
-REQUEST_4 = os.environ.get("FORCE_CHANNEL_Link_4", "")
+#force sub channel requestment link
+FORCE_SUB_CHANNEL_REQUEST_1 = int(os.environ.get("FORCE_CHANNEL_REQUEST_1", "0")) 
+FORCE_SUB_CHANNEL_REQUEST_2 = int(os.environ.get("FORCE_CHANNEL_REQUEST_2", "0"))
+FORCE_SUB_CHANNEL_REQUEST_3 = int(os.environ.get("FORCE_CHANNEL_REQUEST_3", "0"))
+FORCE_SUB_CHANNEL_REQUEST_4 = int(os.environ.get("FORCE_CHANNEL_REQUEST_4", "0"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
