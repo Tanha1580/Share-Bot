@@ -94,7 +94,7 @@ class Bot(Client):
         try:
             db_channel = await self.get_chat(CHANNEL_ID)
             self.db_channel = db_channel
-            test = await self.send_message(chat_id = db_channel.id, text = f"Test DB Channel Message\n─════──════─\nChannel ID: {CHANNEL_ID}")
+            test = await self.send_message(chat_id = db_channel.id, text = f"Test DB Channel Messageing\n─═════──═════─\nChannel ID: <code>{CHANNEL_ID}</code>")
             await test.delete()
         except Exception as e:
             self.LOGGER(__name__).warning(e)
@@ -103,7 +103,7 @@ class Bot(Client):
             sys.exit()
 
         self.set_parse_mode("html")
-        self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by 𝘾𝙤𝙙𝙚 𝕏 𝘽𝙤𝙩𝙯\n\nEdited by 𝙰𝚕𝚒")
+        self.LOGGER(__name__).info(f"Bot Running..!\nCreated by 𝘾𝙤𝙙𝙚 𝕏 𝘽𝙤𝙩𝙯\nEdited by 𝙰𝚕𝚒")
         self.username = usr_bot_me.username
 
     async def stop(self, *args):
