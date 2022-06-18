@@ -38,7 +38,7 @@ class Bot(Client):
                     self.LOGGER(__name__).warning(a)
                     self.LOGGER(__name__).warning("Bot can't Export Invite link from First Force Sub Channel!")
                     self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_1 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL_1}")
-                    self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
+                    self.LOGGER(__name__).info("\nBot Stopped.")
                     sys.exit()
 
         if CUSTOM_LINK_2:
@@ -55,7 +55,7 @@ class Bot(Client):
                     self.LOGGER(__name__).warning(a)
                     self.LOGGER(__name__).warning("Bot can't Export Invite link from Second Force Sub Channel!")
                     self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_2 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL_2}")
-                    self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
+                    self.LOGGER(__name__).info("\nBot Stopped.")
                     sys.exit()
 
         if CUSTOM_LINK_3:
@@ -72,7 +72,7 @@ class Bot(Client):
                      self.LOGGER(__name__).warning(a)
                      self.LOGGER(__name__).warning("Bot can't Export Invite link from Third Force Sub Channel!")
                      self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_3 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL_3}")
-                     self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
+                     self.LOGGER(__name__).info("\nBot Stopped.")
                      sys.exit()
 
         if CUSTOM_LINK_4:
@@ -89,21 +89,21 @@ class Bot(Client):
                     self.LOGGER(__name__).warning(a)
                     self.LOGGER(__name__).warning("Bot can't Export Invite link from First Force Sub Channel!")
                     self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_1 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL_1}")
-                    self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
+                    self.LOGGER(__name__).info("\nBot Stopped.")
                     sys.exit()
         try:
             db_channel = await self.get_chat(CHANNEL_ID)
             self.db_channel = db_channel
-            test = await self.send_message(chat_id = db_channel.id, text = "Test Message")
+            test = await self.send_message(chat_id = db_channel.id, text = f"Test DB Channel Message\n─════──════─\nChannel ID: {CHANNEL_ID}")
             await test.delete()
         except Exception as e:
             self.LOGGER(__name__).warning(e)
             self.LOGGER(__name__).warning(f"Make Sure bot is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}")
-            self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeXBotzSupport for support")
+            self.LOGGER(__name__).info("\nBot Stopped.")
             sys.exit()
 
         self.set_parse_mode("html")
-        self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by 𝘾𝙤𝙙𝙚 𝕏 𝘽𝙤𝙩𝙯\nhttps://t.me/CodeXBotz")
+        self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by 𝘾𝙤𝙙𝙚 𝕏 𝘽𝙤𝙩𝙯\n\nEdited by 𝙰𝚕𝚒")
         self.username = usr_bot_me.username
 
     async def stop(self, *args):
