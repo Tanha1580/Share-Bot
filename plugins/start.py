@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from bot import Bot
 from config import ADMINS, FORCE_MSG, START_MSG, OWNER_ID, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, X_NUM
 from .button import fsub_button
-from helper_func import subscribed, subch1, subch2, subch3, subch4, encode, decode, get_messages
+from helper_func import subscribed, subch1, subch2, subch3, subch4, encode, decode, get_messages, convert, reconvert
 from database.sql import add_user, query_msg, full_userbase
 
 
@@ -35,7 +35,8 @@ async def start_command(client: Client, message: Message):
             base64_string = text.split(" ", 1)[1]
         except:
             return
-        string = await decode(base64_string)
+        ttext = await decode(base64_string)
+        string = await reconvert(ttext)
         argument = string.split("-")
         if len(argument) == 3:
             try:
@@ -201,7 +202,8 @@ async def id_command(client: Client, message: Message):
             base64_string = text.split(" ", 1)[1]
         except:
             return
-        string = await decode(base64_string)
+        ttext = await decode(base64_string)
+        string = await reconvert(ttext)
         argument = string.split("-")
         if len(argument) == 3:
             try:
