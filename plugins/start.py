@@ -208,15 +208,13 @@ async def id_command(client: Client, message: Message):
         string = await reconvert(ttext)
         argument = string.split("-")
         if len(argument) == 3:
-            try:
-                user = argument[0]
-            except:
-                return
+            await message.reply("🔰 این لینک مربوط به ارسال فایل گروهی و توسط ادمین ربات ساخته شده است.", quote = True)
         elif len(argument) == 2:
             try:
                 user = argument[0]
+                ids = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[6:]))
+                await message.reply(f"🆔 آیدی عددی صاحب پیام :\n[ <code>{user}</code> ]\n\n🔗 لینک پست در کانال دیتابیس:\nhttps://t.me/c/{str(abs(client.db_channel.id))[6:]}/{ids}", quote = True)
             except:
                 return
-        await message.reply(f"🆔 آیدی عددی صاحب پیام :\n\n[ <code>{user}</code> ]", quote = True)
     else:
         await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /id همراه با شناسه فایل استفاده کنید\n\nمثال:\n/id RXhhbXBsZS0xMjM0", quote = True)
