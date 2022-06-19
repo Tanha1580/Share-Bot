@@ -106,7 +106,7 @@ async def is_subscribed(filter, client, update):
     else:
         return True
 
-async def convert(text: str) -> str:
+async def convert(textt: str) -> str:
     table = str.maketrans({
         "1": "4",
         "2": "0",
@@ -119,9 +119,9 @@ async def convert(text: str) -> str:
         "9": "3",
         "0": "7",
     })
-    return text.translate(table)
+    return textt.translate(table)
 
-async def reconvert(text: str) -> str:
+async def reconvert(ttext: str) -> str:
     retable = str.maketrans({
         "4": "1",
         "0": "2",
@@ -134,7 +134,7 @@ async def reconvert(text: str) -> str:
         "3": "9",
         "7": "0",
     })
-    return text.translate(retable)
+    return ttext.translate(retable)
 
 async def encode(string):
     string_bytes = string.encode("ascii")
