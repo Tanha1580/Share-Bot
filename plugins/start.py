@@ -216,7 +216,7 @@ async def id_command(client: Client, message: Message):
                 user = argument[0]
                 ids = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[6:]))
                 await message.reply(f"🆔 آیدی عددی صاحب پیام :\n[ <code>{user}</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\nhttps://t.me/c/{str(abs(client.db_channel.id))[3:]}/{ids}", quote = True)
-            except:
-                return
+        except:
+            return
     else:
         await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /id همراه با شناسه فایل استفاده کنید\n\nمثال:\n/id rxHHBxbSzs0XmJm0", quote = True)
