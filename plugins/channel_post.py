@@ -7,7 +7,7 @@ from pyrogram.errors import FloodWait
 
 from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, X_NUM
-from helper_func import encode, subscribed, subch1, subch2, subch3, subch4
+from helper_func import encode, subscribed, subch1, subch2, subch3, subch4, convert
 
 @Bot.on_message(filters.private & subscribed & subch1 & subch2 & subch3 & subch4 & ~filters.text & ~filters.sticker & ~filters.edited & ~filters.poll & ~filters.game)
 async def channel_post(client: Client, message: Message):
@@ -23,7 +23,8 @@ async def channel_post(client: Client, message: Message):
         return
     converted_id = (post_message.message_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)
     id = (message.from_user.id)
-    string = f"{id}-{converted_id}"
+    textt = f"{id}-{converted_id}"
+    string = await convert(textt)
     base64_string = await encode(string)
     link = f"t.me/{client.username}?start={base64_string}"
 
@@ -41,7 +42,8 @@ async def new_post(client: Client, message: Message):
         return
 
     converted_id = (message.message_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)
-    string = f"admin-{converted_id}"
+    textt = f"Admin-{converted_id}"
+    string = await convert(textt)
     base64_string = await encode(string)
     link = f"t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
