@@ -138,7 +138,7 @@ async def reconvert(text: str) -> str:
 
 async def encode(string):
     string_bytes = string.encode("ascii")
-    string_convert = string_bytes.convert(string_bytes)
+    string_convert = convert(string_bytes)
     base64_bytes = base64.urlsafe_b64encode(string_convert)
     base64_string = (base64_bytes.decode("ascii")).strip("=")
     return base64_string
@@ -147,7 +147,7 @@ async def decode(base64_string):
     base64_string = base64_string.strip("=") # links generated before this commit will be having = sign, hence striping them to handle padding errors.
     base64_bytes = (base64_string + "=" * (-len(base64_string) % 4)).encode("ascii")
     string_bytes = base64.urlsafe_b64decode(base64_bytes) 
-    string_reconvert = string_bytes.reconvert(string_bytes) 
+    string_reconvert = reconvert(string_bytes) 
     string = string_reconvert.decode("ascii")
     return string
 
