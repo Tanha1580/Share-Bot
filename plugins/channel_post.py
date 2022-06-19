@@ -26,7 +26,7 @@ async def channel_post(client: Client, message: Message):
     textt = f"{id}-{converted_id}"
     string = await convert(textt)
     base64_string = await encode(string)
-    base_64string = awiat base64_string.swapcase()
+    base_64string = await base64_string.swapcase()
     link = f"t.me/{client.username}?start={base_64string}"
 
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
@@ -46,7 +46,7 @@ async def new_post(client: Client, message: Message):
     textt = f"Admin-{converted_id}"
     string = await convert(textt)
     base64_string = await encode(string)
-    base_64string = awiat base64_string.swapcase()
+    base_64string = await base64_string.swapcase()
     link = f"t.me/{client.username}?start={base_64string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
     try:
