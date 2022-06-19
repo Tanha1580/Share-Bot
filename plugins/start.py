@@ -32,7 +32,7 @@ async def start_command(client: Client, message: Message):
     text = message.text
     if len(text)>7:
         try:
-            base_64string = awiat text.swapcase()
+            base_64string = await text.swapcase()
             base64_string = base_64string.split(" ", 1)[1]
         except:
             return
@@ -200,7 +200,7 @@ async def id_command(client: Client, message: Message):
     text = message.text
     if len(text)>4:
         try:
-            base_64string = awiat text.swapcase()
+            base_64string = await text.swapcase()
             base64_string = base_64string.split(" ", 1)[1]
         except:
             return
