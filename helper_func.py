@@ -106,9 +106,40 @@ async def is_subscribed(filter, client, update):
     else:
         return True
 
+async def convert(text: str) -> str:
+    table = str.maketrans({
+        "1": "4",
+        "2": "0",
+        "3": "8",
+        "4": "2",
+        "5": "6",
+        "6": "1",
+        "7": "9",
+        "8": "5",
+        "9": "3",
+        "0": "7",
+    })
+    return text.translate(table)
+
+async def reconvert(text: str) -> str:
+    retable = str.maketrans({
+        "4": "1",
+        "0": "2",
+        "8": "3",
+        "2": "4",
+        "6": "5",
+        "1": "6",
+        "9": "7",
+        "5": "8",
+        "3": "9",
+        "7": "0",
+    })
+    return text.translate(retable)
+
 async def encode(string):
     string_bytes = string.encode("ascii")
-    base64_bytes = base64.urlsafe_b64encode(string_bytes)
+    string_convert = string_bytes.convert(string_bytes)
+    base64_bytes = base64.urlsafe_b64encode(string_convert)
     base64_string = (base64_bytes.decode("ascii")).strip("=")
     return base64_string
 
@@ -116,7 +147,8 @@ async def decode(base64_string):
     base64_string = base64_string.strip("=") # links generated before this commit will be having = sign, hence striping them to handle padding errors.
     base64_bytes = (base64_string + "=" * (-len(base64_string) % 4)).encode("ascii")
     string_bytes = base64.urlsafe_b64decode(base64_bytes) 
-    string = string_bytes.decode("ascii")
+    string_reconvert = string_bytes.reconvert(string_bytes) 
+    string = string_reconvert.decode("ascii")
     return string
 
 async def get_messages(client, message_ids):
