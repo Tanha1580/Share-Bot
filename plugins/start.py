@@ -38,7 +38,13 @@ async def start_command(client: Client, message: Message):
             base64_string = await convertt(texxt)
         except:
             return
-        ttext = await decode(base64_string)
+        try:
+           ttext = await decode(base64_string)
+        except:
+            bvv = await message.reply("⛔ شناسه فایل اشتباه است.")
+            await asyncio.sleep(3)
+            await bvv.delete()
+            return
         string = await reconvert(ttext)
         argument = string.split("-")
         if len(argument) == 3:
@@ -246,7 +252,13 @@ async def id_command(client: Client, message: Message):
             base64_string = await convertt(texxt)
         except:
             return
-        ttext = await decode(base64_string)
+        try:
+            ttext = await decode(base64_string)
+        except:
+            bbv = await message.reply("⛔ شناسه فایل اشتباه است.")
+            await asyncio.sleep(3)
+            await bbv.delete()
+            return
         string = await reconvert(ttext)
         argument = string.split("-")
         if len(argument) == 3:
