@@ -7,7 +7,7 @@ from pyrogram.errors import FloodWait
 
 from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, X_NUM
-from helper_func import encode, subscribed, subch1, subch2, subch3, subch4, convert
+from helper_func import encode, subscribed, subch1, subch2, subch3, subch4, convert, cconvert
 
 @Bot.on_message(filters.private & subscribed & subch1 & subch2 & subch3 & subch4 & ~filters.text & ~filters.sticker & ~filters.edited & ~filters.poll & ~filters.game)
 async def channel_post(client: Client, message: Message):
@@ -25,9 +25,9 @@ async def channel_post(client: Client, message: Message):
     id = (message.from_user.id)
     textt = f"{id}-{converted_id}"
     string = await convert(textt)
-    base64_string = await encode(string)
-    base_64string = base64_string.swapcase()
-    link = f"t.me/{client.username}?start={base_64string}"
+    teext = await encode(string)
+    base64_string = await cconvert(teext)
+    link = f"https://t.me/{client.username}?start={base64_string}"
 
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
 
@@ -43,11 +43,11 @@ async def new_post(client: Client, message: Message):
         return
 
     converted_id = (message.message_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)
-    textt = f"Admin-{converted_id}"
+    textt = f"ADMIN-{converted_id}"
     string = await convert(textt)
-    base64_string = await encode(string)
-    base_64string = base64_string.swapcase()
-    link = f"t.me/{client.username}?start={base_64string}"
+    teext = await encode(string)
+    base64_string = await cconvert(teext)
+    link = f"https://t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
     try:
         await message.edit_reply_markup(reply_markup)
