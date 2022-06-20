@@ -65,7 +65,7 @@ async def start_command(client: Client, message: Message):
                         break
         elif len(argument) == 2:
             cw = argument[0]
-            if cw.isdecimal() == True and cw == 'ADMIN', 'GenLink', 'Batch':
+            if cw.isdecimal() == True and cw == "ADMIN" and cw == "GenLink" and cw == "Batch":
                 try:
                     ids = [int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[6:]))]
                 except:
