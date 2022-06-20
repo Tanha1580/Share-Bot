@@ -224,7 +224,7 @@ async def id_command(client: Client, message: Message):
     else:
         await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /id همراه با شناسه فایل استفاده کنید\n\nمثال:\n/id rxHHBxbSzs0XmJm0", quote = True)
 
-@Bot.on_message(filters.text('id') & filters.private)
+@Bot.on_message(filters.command('id') & filters.private)
 async def get_user_info(client: Client, message: Message):
     await message.reply(
         text = GET_MSG.format(
