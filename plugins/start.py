@@ -251,7 +251,7 @@ async def id_command(client: Client, message: Message):
         nm = argument[0]
             if argument[0] == "Example":
                 await message.reply("🆔 آیدی عددی صاحب پیام :\n[ <code>Example</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\nhttps://t.me/c/Channel_ID/Post_ID", quote = True)
-            elif nm.isalnum() == True:
+            if nm.isalnum() == True:
                 await message.reply("⛔ شناسه فایل اشتباه است.")
                 return
             else:
