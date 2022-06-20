@@ -172,7 +172,11 @@ async def get_users(client: Bot, message: Message):
 
 @Bot.on_message(filters.command('help') & filters.private & filters.user(ADMINS))
 async def help(client: Bot, message: Message):
-    await message.reply("📃راهنمای دستورات ربات:\n\n/users - دریافت آمار کاربران ربات\n\n/id - دریافت اطلاعات کاربر\n\n/senderid [msg_id] - دریافت اطلاعات پست\n\n/broadcast - ارسال پیام به کاربران ربات\n\n/genlink - ساخت لینک برای پست کانال\n\n/batch - لینک ارسال گروهی فایل\n\n/help - راهنمای ربات", quote = True)
+    await message.reply(
+        text = "📃راهنمای دستورات ربات:\n\n/users - دریافت آمار کاربران ربات\n\n/id - دریافت اطلاعات کاربر\n\n/senderid [msg_id] - دریافت اطلاعات پست\n\n/broadcast - ارسال پیام به کاربران ربات\n\n/genlink - ساخت لینک برای پست کانال\n\n/batch - لینک ارسال گروهی فایل\n\n/help - راهنمای ربات",
+        quote = True,
+        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("❌ بستن", callback_data = "close")]])
+    )
 
 @Bot.on_message(filters.private & filters.command('broadcast') & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
@@ -258,7 +262,7 @@ async def get_info(client: Client, message: Message):
                 dc = message.from_user.dc_id,
                 id = message.from_user.id
             ),
-        reply_markup = None,
+        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("❌ بستن", callback_data = "close")]]),
         quote = True,
         disable_web_page_preview = True
     )
