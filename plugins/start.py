@@ -88,17 +88,18 @@ async def start_command(client: Client, message: Message):
                 if font:
                     await asyncio.sleep(0.3)
                     ms = await message.reply("⏳ پیام بالا تا 30 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
-                    await asyncio.sleep(20)
-                    await ms.edit("⏳ پیام بالا تا 10 ثانیه دیگر پاک میشود!\nلطفا قبل از پاک شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
                     await asyncio.sleep(10)
+                    await ms.edit("⏳ پیام بالا تا 20 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                    await asyncio.sleep(10)
+                    await ms.edit("⏳ پیام بالا تا 10 ثانیه دیگر پاک میشود!\nلطفا قبل از پاک شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
                     await font.delete()
                     await asyncio.sleep(0.2)
                     await ms.edit(f"🚮 پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
-                    await asyncio.sleep(12)
+                    await asyncio.sleep(8)
                     await ms.delete()
                 else:
                     pg = await message.reply(f"⚠️ خطا در دریافت پیام!\n\n⭕ پیام مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردیده است!\n<b>Message_ID:</b> <s>{texxt}</s>")
-                    await asyncio.sleep(10)
+                    await asyncio.sleep(6)
                     await pg.delete()
             except FloodWait as e:
                 await asyncio.sleep(e.x)
@@ -107,17 +108,19 @@ async def start_command(client: Client, message: Message):
                 if fontt:
                     await asyncio.sleep(0.3)
                     mss = await message.reply("⏳ پیام بالا تا 30 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
-                    await asyncio.sleep(20)
+                    await asyncio.sleep(10)
+                    await mss.edit("⏳ پیام بالا تا 20 ثانیه دیگر پاک میشود!\nلطفا قبل از پاک شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                    await asyncio.sleep(10)
                     await mss.edit("⏳ پیام بالا تا 10 ثانیه دیگر پاک میشود!\nلطفا قبل از پاک شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
                     await asyncio.sleep(10)
                     await fontt.delete()
                     await asyncio.sleep(0.2)
                     await mss.edit(f"🚮 پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
-                    await asyncio.sleep(12)
+                    await asyncio.sleep(8)
                     await mss.delete()
                 else:
                     pgg = await message.reply(f"⚠️ خطا در دریافت پیام!\n\n⭕ پیام مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردیده است!\n<b>Message_ID:</b> <s>{texxt}</s>")
-                    await asyncio.sleep(10)
+                    await asyncio.sleep(6)
                     await pgg.delete()
             except:
                 pass
@@ -168,7 +171,7 @@ async def get_users(client: Bot, message: Message):
 
 @Bot.on_message(filters.command('help') & filters.private & filters.user(ADMINS))
 async def help(client: Bot, message: Message):
-    await message.reply("راهنمای ربات:\n\n/users - دریافت آمار کاربران ربات\n\n/id - دریافت اطلاعات کاربر\n\n/senderid [msg_id] - دریافت اطلاعات پست\n\n/broadcast - ارسال پیام به کاربران ربات\n\n/genlink - ساخت لینک برای پست کانال\n\n/batch - لینک ارسال گروهی فایل\n\n/help - راهنمای ربات", quote = True)
+    await message.reply("📃راهنمای دستورات ربات:\n\n/users - دریافت آمار کاربران ربات\n\n/id - دریافت اطلاعات کاربر\n\n/senderid [msg_id] - دریافت اطلاعات پست\n\n/broadcast - ارسال پیام به کاربران ربات\n\n/genlink - ساخت لینک برای پست کانال\n\n/batch - لینک ارسال گروهی فایل\n\n/help - راهنمای ربات", quote = True)
 
 @Bot.on_message(filters.private & filters.command('broadcast') & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
@@ -240,8 +243,9 @@ async def id_command(client: Client, message: Message):
                 except:
                     return
     else:
-        await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /id همراه با شناسه فایل استفاده کنید\n\nمثال:\n/senderid EKhhbKOsMF0xZjZ0", quote = True)
-
+        fd = await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /id همراه با شناسه فایل استفاده کنید\n\nمثال:\n/senderid EKhhbKOsMF0xZjZ0", quote = True)
+        await asyncio.sleep(15)
+        await fd.delete()
 @Bot.on_message(filters.command('id') & filters.private)
 async def get_info(client: Client, message: Message):
     await message.reply(
