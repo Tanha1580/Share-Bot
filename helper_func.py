@@ -157,7 +157,7 @@ async def convertt(texxt: str) -> str:
 async def cconvert(teext: str) -> str:
     table = str.maketrans({
         "A": "W", "N": "V",
-        "B": "B", "O": "I",
+        "B": "R", "O": "I",
         "C": "K", "P": "F",
         "D": "P", "Q": "M",
         "E": "E", "R": "C",
