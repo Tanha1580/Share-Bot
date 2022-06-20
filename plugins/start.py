@@ -84,6 +84,13 @@ async def start_command(client: Client, message: Message):
 
             try:
                 font = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                    if font:
+                        continue
+                    else:
+                        pg = await message.reply("⭕ پست مورد نظر توسط ادمین ربات از دیتابیس ربات حذف گردید!")
+                        await asyncio.sleep(8)
+                        await pg.delete()
+                        return
                 await asyncio.sleep(0.3)
                 ms = await message.reply("پیام بالا تا 30 ثانیه دیگر پاک میشود. لطفا قبل از پاک شدن آن را در saved messages تلگرام خود ذخیره کنید.")
                 await asyncio.sleep(30)
@@ -96,6 +103,13 @@ async def start_command(client: Client, message: Message):
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 fontt = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                    if fontt:
+                        continue
+                    else:
+                        pgg = await message.reply("⭕ پست مورد نظر توسط ادمین ربات از دیتابیس ربات حذف گردید!")
+                        await asyncio.sleep(8)
+                        await pgg.delete()
+                        return
                 await asyncio.sleep(0.3)
                 mss = await message.reply("پیام بالا تا 30 ثانیه دیگر پاک میشود. لطفا قبل از پاک شدن آن را در saved messages تلگرام خود ذخیره کنید.")
                 await asyncio.sleep(30)
