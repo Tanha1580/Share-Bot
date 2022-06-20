@@ -56,7 +56,7 @@ async def link_generator(client: Client, message: Message):
             await channel_message.reply("❌ خطا\n\nاین [ پست / لینک ] از کانال دیتابیس نیست یا حذف شده است.", quote = True)
             continue
 
-    textt = f"GenLink-{(msg_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)}"
+    textt = f"12-{(msg_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)}"
     string = await convert(textt)
     teext = await encode(string)
     base64_string = await cconvert(teext)
