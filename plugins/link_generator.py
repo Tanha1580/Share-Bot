@@ -33,7 +33,7 @@ async def batch(client: Client, message: Message):
             continue
 
 
-    textt = f"BATCH-{(f_msg_id * int(str(abs(client.db_channel.id))[8:]) + X_NUM)}-{(s_msg_id * int(str(abs(client.db_channel.id))[8:]) + X_NUM)}"
+    textt = f"Batch-{(f_msg_id * int(str(abs(client.db_channel.id))[8:]) + X_NUM)}-{(s_msg_id * int(str(abs(client.db_channel.id))[8:]) + X_NUM)}"
     string = await convert(textt)
     teext = await encode(string)
     base64_string = await cconvert(teext)
@@ -56,7 +56,8 @@ async def link_generator(client: Client, message: Message):
             await channel_message.reply("❌ خطا\n\nاین [ پست / لینک ] از کانال دیتابیس نیست یا حذف شده است.", quote = True)
             continue
 
-    string = await convert(f"GENLINK-{(msg_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)}")
+    textt = f"GenLink-{(msg_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)}"
+    string = await convert(textt)
     teext = await encode(string)
     base64_string = await cconvert(teext)
     link = f"https://t.me/{client.username}?start={base64_string}"
