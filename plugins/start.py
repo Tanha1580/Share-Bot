@@ -14,7 +14,9 @@ from database.sql import add_user, query_msg, full_userbase
 
 #=====================================================================================##
 
-WAIT_MSG = """"⚙ در حال پردازش ..."""
+WAIT_MSG = """⚙ در حال پردازش ..."""
+
+GET_MSG = """├from {mention}\n┊   ├ ID: <code>{id}</code>\n┊   ├ First Name: {first}\n┊   ├ Last Name: {last}\n┊   └ User Name: {username}\n┊\n└ @{client.username}"""
 
 REPLY_ERROR = """📢 اطلاع‌رسانی\n\nروی پیام مورد نظر ریپلای نمائید و مجدد <code>/broadcast</code> را ارسال کنید."""
 
@@ -225,7 +227,7 @@ async def id_command(client: Client, message: Message):
 @Bot.on_message(filters.text('id') & filters.private)
 async def get_user_info(client: Client, message: Message):
     await message.reply(
-        text = f"├from {mention}\n┊   ├ ID: <code>{id}</code>\n┊   ├ First Name: {first}\n┊   ├ Last Name: {last}\n┊   └ User Name: {username}\n┊\n└ @{client.username}.format(
+        text = GET_MSG.format(
                 first = message.from_user.first_name,
                 last = "" if not message.from_user.last_name else ' ' + message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
