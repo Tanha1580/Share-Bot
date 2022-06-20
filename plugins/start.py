@@ -232,7 +232,7 @@ async def get_info(client: Client, message: Message):
                 last = "" if not message.from_user.last_name else ' ' + message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
                 mention = message.from_user.mention,
-                dc = message.from_user.dc_id
+                dc = message.from_user.dc_id,
                 id = message.from_user.id
             ),
         reply_markup = None,
