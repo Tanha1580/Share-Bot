@@ -138,37 +138,37 @@ async def reconvert(ttext: str) -> str:
 
 async def convertt(texxt: str) -> str:
     table = str.maketrans({
-        "A": "T", "N": "S",
-        "B": "I", "O": "G",
-        "C": "R", "P": "D",
-        "D": "F", "Q": "K",
-        "E": "W", "R": "B",
-        "F": "P", "S": "J",
-        "G": "E", "T": "Y",
-        "H": "X", "U": "L",
-        "I": "O", "V": "N",
-        "J": "H", "W": "A",
-        "K": "C", "X": "M",
-        "L": "U", "Y": "Z",
-        "M": "Q", "Z": "V",
+        "A": "N", "N": "A",
+        "B": "O", "O": "B",
+        "C": "P", "P": "C",
+        "D": "Q", "Q": "D",
+        "E": "R", "R": "E",
+        "F": "S", "S": "F",
+        "G": "T", "T": "G",
+        "H": "U", "U": "H",
+        "I": "V", "V": "I",
+        "J": "W", "W": "J",
+        "K": "X", "X": "K",
+        "L": "Y", "Y": "L",
+        "M": "Z", "Z": "M"
     })
     return texxt.translate(table)
 
 async def cconvert(teext: str) -> str:
     table = str.maketrans({
-        "T": "A", "S": "N",
-        "I": "B", "G": "O",
-        "R": "C", "D": "P",
-        "F": "D", "K": "Q",
-        "W": "E", "B": "R",
-        "P": "F", "J": "S",
-        "E": "G", "U": "T",
-        "X": "H", "L": "U",
-        "O": "I", "N": "V",
-        "H": "J", "A": "W",
-        "C": "K", "M": "X",
-        "U": "L", "Z": "Y",
-        "Q": "M", "V": "Z",
+        "A": "N", "N": "A",
+        "B": "O", "O": "B",
+        "C": "P", "P": "C",
+        "D": "Q", "Q": "D",
+        "E": "R", "R": "E",
+        "F": "S", "S": "F",
+        "G": "T", "T": "G",
+        "H": "U", "U": "H",
+        "I": "V", "V": "I",
+        "J": "W", "W": "J",
+        "K": "X", "X": "K",
+        "L": "Y", "Y": "L",
+        "M": "Z", "Z": "M"
     })
     return teext.translate(table)
 
