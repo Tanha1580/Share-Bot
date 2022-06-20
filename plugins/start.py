@@ -86,8 +86,8 @@ async def start_command(client: Client, message: Message):
                 font = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
 
                 if not font:
-                    pg = await message.reply("⭕ پست مورد نظر توسط ادمین ربات از دیتابیس ربات حذف گردید!")
-                    await asyncio.sleep(8)
+                    pg = await message.reply(f"⚠️ خطا!\n\n⭕ پست مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردید!\n<b>Message_id:</b> <s>{texxt}</s>")
+                    await asyncio.sleep(15)
                     await pg.delete()
                     return
                 else:
@@ -99,7 +99,7 @@ async def start_command(client: Client, message: Message):
                 await font.delete()
                 await asyncio.sleep(0.2)
                 await ms.delete()
-                fd = await message.reply("پیام حذف شد.\n‌")
+                fd = await message.reply(f"پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
                 await asyncio.sleep(15)
                 await fd.delete()
             except FloodWait as e:
@@ -107,8 +107,8 @@ async def start_command(client: Client, message: Message):
                 fontt = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
 
                 if not fontt:
-                    pgg = await message.reply("⭕ پست مورد نظر توسط ادمین ربات از دیتابیس ربات حذف گردید!")
-                    await asyncio.sleep(8)
+                    pgg = await message.reply(f"⚠️ خطا!\n\n⭕ پست مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردید!\n<b>Message_id:</b> <s>{texxt}</s>")
+                    await asyncio.sleep(15)
                     await pgg.delete()
                     return
                 else:
@@ -120,7 +120,7 @@ async def start_command(client: Client, message: Message):
                 await fontt.delete()
                 await asyncio.sleep(0.2)
                 await mss.delete()
-                fdd = await message.reply(f"پیام حذف شد.\n‌‌")
+                fdd = await message.reply(f"پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
                 await asyncio.sleep(15)
                 await fdd.delete()
             except:
