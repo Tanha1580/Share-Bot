@@ -16,6 +16,8 @@ from database.sql import add_user, query_msg, full_userbase
 
 WAIT_MSG = """⚙ در حال پردازش ..."""
 
+HELP_MSG = """ راهنمای ربات:\n\n/users - دریافت آمار کاربران ربات\n\n/id - دریافت اطلاعات کاربر\n\n/senderid [msg_id] - دریافت اطلاعات پست\n\n/broadcast - ارسال پیام به کاربران ربات\n\n/genlink - ساخت لینک برای پست کانال\n\n/batch - لینک ارسال گروهی فایل\n\n/help - راهنمای ربات"""
+
 GET_MSG = """<b>User Information</b>\n  ├ from {mention}\n  ┊   ├ DC: {dc}\n  ┊   ├ ID: <code>{id}</code>\n  ┊   ├ First Name: {first}\n  ┊   ├ Last Name: {last}\n  ┊   └ User Name: {username}\n  ┊\n  └ 𝗣𝗿𝗼𝗱𝘂𝗰𝘁 𝗯𝘆 𝗙𝗼𝗻𝘁𝗴𝗮𝗵𝗧𝗲𝗮𝗺"""
 
 REPLY_ERROR = """📢 اطلاع‌رسانی\n\nروی پیام مورد نظر ریپلای نمائید و مجدد <code>/broadcast</code> را ارسال کنید."""
@@ -165,6 +167,10 @@ async def get_users(client: Bot, message: Message):
     msg = await client.send_message(chat_id=message.chat.id, text=WAIT_MSG)
     users = await full_userbase()
     await msg.edit(f"👤 {len(users)} نفر از ربات استفاده می‌کنند.")
+
+@Bot.on_message(filters.command('help') & filters.private & filters.user(ADMINS))
+async def help(client: Bot, message: Message):
+    await client.send_message(chat_id=message.chat.id, text=HELP_MSG, quote = True)
 
 @Bot.on_message(filters.private & filters.command('broadcast') & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
