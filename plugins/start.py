@@ -240,7 +240,7 @@ async def id_command(client: Client, message: Message):
                 except:
                     return
     else:
-        await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /id همراه با شناسه فایل استفاده کنید\n\nمثال:\n/senderid EKhhbKOsMF0xZjZ0", quote = True)
+        await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /id همراه با شناسه فایل استفاده کنید\n\nمثال:\n/senderid EKhhbKOsMF0xZjZ0", quote = True, message_auto_delete_time = 10)
 
 @Bot.on_message(filters.command('id') & filters.private)
 async def get_info(client: Client, message: Message):
