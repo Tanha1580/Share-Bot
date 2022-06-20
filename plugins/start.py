@@ -97,20 +97,20 @@ async def start_command(client: Client, message: Message):
 
                 if font:
                     await asyncio.sleep(0.3)
-                    ms = await message.reply("⏳ پیام بالا تا 30 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                    ms = await message.reply("⏳ پیام بالا تا <u>30</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
                     await asyncio.sleep(10)
-                    await ms.edit("⏳ پیام بالا تا 20 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                    await ms.edit("⏳ پیام بالا تا <u>20</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
                     await asyncio.sleep(10)
-                    await ms.edit("⏳ پیام بالا تا 10 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                    await ms.edit("⏳ پیام بالا تا <u>10</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
                     await asyncio.sleep(10)
                     await font.delete()
                     await asyncio.sleep(0.2)
                     await ms.edit(f"🚮 پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
-                    await asyncio.sleep(8)
+                    await asyncio.sleep(4)
                     await ms.delete()
                 else:
                     pg = await message.reply(f"⚠️ خطا در دریافت پیام!\n\n⭕ پیام مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردیده است!\n<b>Message_ID:</b> <s>{texxt}</s>")
-                    await asyncio.sleep(6)
+                    await asyncio.sleep(3)
                     await pg.delete()
             except FloodWait as e:
                 await asyncio.sleep(e.x)
@@ -118,20 +118,20 @@ async def start_command(client: Client, message: Message):
 
                 if fontt:
                     await asyncio.sleep(0.3)
-                    mss = await message.reply("⏳ پیام بالا تا 30 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                    mss = await message.reply("⏳ پیام بالا تا <u>30</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
                     await asyncio.sleep(10)
-                    await mss.edit("⏳ پیام بالا تا 20 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                    await mss.edit("⏳ پیام بالا تا <u>20</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
                     await asyncio.sleep(10)
-                    await mss.edit("⏳ پیام بالا تا 10 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                    await mss.edit("⏳ پیام بالا تا <u>10</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
                     await asyncio.sleep(10)
                     await fontt.delete()
                     await asyncio.sleep(0.2)
                     await mss.edit(f"🚮 پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
-                    await asyncio.sleep(8)
+                    await asyncio.sleep(4)
                     await mss.delete()
                 else:
                     pgg = await message.reply(f"⚠️ خطا در دریافت پیام!\n\n⭕ پیام مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردیده است!\n<b>Message_ID:</b> <s>{texxt}</s>")
-                    await asyncio.sleep(6)
+                    await asyncio.sleep(3)
                     await pgg.delete()
             except:
                 pass
@@ -251,9 +251,6 @@ async def id_command(client: Client, message: Message):
             nm = argument[0]
             if nm == "Example":
                 await message.reply("🆔 آیدی عددی صاحب پیام :\n[ <code>Example</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\nhttps://t.me/c/Channel_ID/Post_ID", quote = True)
-            elif nm.isalnum() == True:
-                await message.reply("⛔ شناسه فایل اشتباه است.")
-                return
             else:
                 try:
                     ids = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[6:]))
