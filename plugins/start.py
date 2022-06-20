@@ -16,7 +16,7 @@ from database.sql import add_user, query_msg, full_userbase
 
 WAIT_MSG = """⚙ در حال پردازش ..."""
 
-GET_MSG = """Message from {mention}\n  ├ from\n  ┊   ├ ID: <code>{id}</code>\n  ┊   ├ DC: {dc}\n  ┊   ├ First Name: {first}\n  ┊   ├ Last Name: {last}\n  ┊   └ User Name: {username}\n  ┊\n  └ 𝗣𝗿𝗼𝗱𝘂𝗰𝘁 𝗯𝘆 𝗙𝗼𝗻𝘁𝗴𝗮𝗵𝗧𝗲𝗮𝗺"""
+GET_MSG = """<b>User Information</b>\n  ├ from {mention}\n  ┊   ├ ID: <code>{id}</code>\n  ┊   ├ DC: {dc}\n  ┊   ├ First Name: {first}\n  ┊   ├ Last Name: {last}\n  ┊   └ User Name: {username}\n  ┊\n  └ 𝗣𝗿𝗼𝗱𝘂𝗰𝘁 𝗯𝘆 𝗙𝗼𝗻𝘁𝗴𝗮𝗵𝗧𝗲𝗮𝗺"""
 
 REPLY_ERROR = """📢 اطلاع‌رسانی\n\nروی پیام مورد نظر ریپلای نمائید و مجدد <code>/broadcast</code> را ارسال کنید."""
 
@@ -90,7 +90,7 @@ async def start_command(client: Client, message: Message):
                 await font.delete()
                 await asyncio.sleep(0.2)
                 await ms.delete()
-                fd = await message.reply("پیام حذف شد.")
+                fd = await message.reply(f"پیام حذف شد.\n\n<b>Message_ID</b>:\nstr(abs(text))[7:]")
                 await asyncio.sleep(15)
                 await fd.delete()
             except FloodWait as e:
@@ -102,7 +102,7 @@ async def start_command(client: Client, message: Message):
                 await fontt.delete()
                 await asyncio.sleep(0.2)
                 await mss.delete()
-                fdd = await message.reply("پیام حذف شد.")
+                fdd = await message.reply(f"پیام حذف شد.\n\n<b>Message_ID</b>:\nstr(abs(text))[7:]")
                 await asyncio.sleep(15)
                 await fdd.delete()
             except:
