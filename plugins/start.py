@@ -90,7 +90,7 @@ async def start_command(client: Client, message: Message):
                 await font.delete()
                 await asyncio.sleep(0.2)
                 await ms.delete()
-                fd = await message.reply(f"پیام حذف شد.\n\n<b>Message_ID</b>:\nstr(abs(text))[7:]")
+                fd = await message.reply("پیام حذف شد.\n‌")
                 await asyncio.sleep(15)
                 await fd.delete()
             except FloodWait as e:
@@ -102,7 +102,7 @@ async def start_command(client: Client, message: Message):
                 await fontt.delete()
                 await asyncio.sleep(0.2)
                 await mss.delete()
-                fdd = await message.reply(f"پیام حذف شد.\n\n<b>Message_ID</b>:\nstr(abs(text))[7:]")
+                fdd = await message.reply(f"پیام حذف شد.\n‌‌")
                 await asyncio.sleep(15)
                 await fdd.delete()
             except:
