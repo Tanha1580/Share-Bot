@@ -16,7 +16,7 @@ from database.sql import add_user, query_msg, full_userbase
 
 WAIT_MSG = """⚙ در حال پردازش ..."""
 
-GET_MSG = """├from {mention}\n┊   ├ ID: <code>{id}</code>\n┊   ├ First Name: {first}\n┊   ├ Last Name: {last}\n┊   └ User Name: {username}\n┊\n└ @{client.username}"""
+GET_MSG = f"""├from {mention}\n┊   ├ ID: <code>{id}</code>\n┊   ├ First Name: {first}\n┊   ├ Last Name: {last}\n┊   └ User Name: {username}\n┊\n└ @{client.username}"""
 
 REPLY_ERROR = """📢 اطلاع‌رسانی\n\nروی پیام مورد نظر ریپلای نمائید و مجدد <code>/broadcast</code> را ارسال کنید."""
 
