@@ -136,6 +136,42 @@ async def reconvert(ttext: str) -> str:
     })
     return ttext.translate(retable)
 
+async def convertt(texxt: str) -> str:
+    table = str.maketrans({
+        "A": "T", "N": "S",
+        "B": "I", "O": "G",
+        "C": "R", "P": "D",
+        "D": "F", "Q": "K",
+        "E": "W", "R": "B",
+        "F": "P", "S": "J",
+        "G": "E", "T": "Y",
+        "H": "X", "U": "L",
+        "I": "O", "V": "N",
+        "J": "H", "W": "A",
+        "K": "C", "X": "M",
+        "L": "U", "Y": "Z",
+        "M": "Q", "Z": "V",
+    })
+    return texxt.translate(table)
+
+async def cconvert(teext: str) -> str:
+    table = str.maketrans({
+        "A": "W", "N": "V",
+        "B": "B", "O": "I",
+        "C": "K", "P": "F",
+        "D": "P", "Q": "M",
+        "E": "E", "R": "C",
+        "F": "D", "S": "N",
+        "G": "O", "T": "A",
+        "H": "J", "U": "L",
+        "I": "B", "V": "Z",
+        "J": "S", "W": "E",
+        "K": "Q", "X": "H",
+        "L": "U", "Y": "T",
+        "M": "X", "Z": "Y",
+    })
+    return teext.translate(table)
+
 async def encode(string):
     string_bytes = string.encode("ascii")
     base64_bytes = base64.urlsafe_b64encode(string_bytes)
