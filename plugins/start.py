@@ -232,11 +232,11 @@ async def id_command(client: Client, message: Message):
                 try:
                     user = argument[0]
                     ids = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[6:]))
-                    await message.reply(f"🆔 آیدی عددی صاحب پیام :\n[ <code>{user}</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\n<a href='https://t.me/c/{str(abs(client.db_channel.id))[3:]}/{ids}'>Go:{ids}</a>\n\nDeveloper: <a href='https://t.me/Ali4702'>𝗔𝗹𝗶😎</a>", quote = True)
+                    await message.reply(f"🆔 آیدی عددی صاحب پیام :\n[ <code>{user}</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\n<a href='https://t.me/c/{str(abs(client.db_channel.id))[3:]}/{ids}'>Goto:{ids}</a>\n─══─✦─══─\n𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋: <a href='https://t.me/Ali4702'>𝙰𝚕𝚒😎</a>", disable_web_page_preview = True, quote = True)
                 except:
                     return
     else:
-        await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /id همراه با شناسه فایل استفاده کنید\n\nمثال:\n/senderid CHhhbHRsYN0xXjX0", quote = True)
+        await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /id همراه با شناسه فایل استفاده کنید\n\nمثال:\n/senderid EKhhbKOsMF0xZjZ0", quote = True)
 
 @Bot.on_message(filters.command('id') & filters.private)
 async def get_info(client: Client, message: Message):
