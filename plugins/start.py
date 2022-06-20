@@ -42,36 +42,36 @@ async def start_command(client: Client, message: Message):
         string = await reconvert(ttext)
         argument = string.split("-")
         if len(argument) == 3:
-        ty = argument[0]
-        if ty.isalnum() == True:
-            try:
-                start = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[8:]))
-                end = int((int(argument[2]) - X_NUM) / int(str(abs(client.db_channel.id))[8:]))
-            except:
-                return
-            if start <= end:
-                ids = range(start,end+1)
+            ty = argument[0]
+            if ty.isalnum() == True:
+                try:
+                    start = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[8:]))
+                    end = int((int(argument[2]) - X_NUM) / int(str(abs(client.db_channel.id))[8:]))
+                except:
+                    return
+                if start <= end:
+                    ids = range(start,end+1)
+                else:
+                    ids = []
+                    i = start
+                    while True:
+                        ids.append(i)
+                        i -= 1
+                        if i < end:
+                            break
             else:
-                ids = []
-                i = start
-                while True:
-                    ids.append(i)
-                    i -= 1
-                    if i < end:
-                        break
-        else:
-            await message.reply("⛔ شناسه فایل اشتباه است.")
-            return
-        elif len(argument) == 2:
-        cw = argument[0]
-        if cw.isalnum() == True:
-            try:
-                ids = [int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[6:]))]
-            except:
+                await message.reply("⛔ شناسه فایل اشتباه است.")
                 return
-        else:
-            await message.reply("⛔ شناسه فایل اشتباه است.")
-            return
+        elif len(argument) == 2:
+            cw = argument[0]
+            if cw.isalnum() == True:
+                try:
+                    ids = [int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[6:]))]
+                except:
+                    return
+            else:
+                await message.reply("⛔ شناسه فایل اشتباه است.")
+                return
         temp_msg = await message.reply("⏳ لطفا صبر کنید ...")
         try:
             messages = await get_messages(client, ids)
