@@ -59,6 +59,6 @@ async def link_generator(client: Client, message: Message):
     string = await convert(f"GENLINK-{(msg_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)}")
     teext = await encode(string)
     base64_string = await cconvert(teext)
-    link = f"hrrps://t.me/{client.username}?start={base_64string}"
+    link = f"hrrps://t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
     await channel_message.reply_text(f"🔗 لینک ایجاد شده برای فایل شما\n\n─══════─✦─══════─\n{link}\n─══════─✦─══════─\n\n🆔️ @{client.username}", quote=True, reply_markup=reply_markup, disable_web_page_preview = True)
