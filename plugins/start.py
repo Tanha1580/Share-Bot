@@ -195,10 +195,10 @@ async def send_text(client: Bot, message: Message):
         await asyncio.sleep(8)
         await msg.delete()
 
-@Bot.on_message(filters.private & filters.command('id') & filters.user(ADMINS))
+@Bot.on_message(filters.private & filters.command('senderid') & filters.user(ADMINS))
 async def id_command(client: Client, message: Message):
     text = message.text
-    if len(text)>4:
+    if len(text)>10:
         try:
             base_64string = text.swapcase()
             base64_string = base_64string.split(" ", 1)[1]
@@ -221,3 +221,18 @@ async def id_command(client: Client, message: Message):
                     return
     else:
         await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /id همراه با شناسه فایل استفاده کنید\n\nمثال:\n/id rxHHBxbSzs0XmJm0", quote = True)
+
+@Bot.on_message(filters.text('id') & filters.private)
+async def get_user_info(client: Client, message: Message):
+    await message.reply(
+        text = f"├from {mention}\n┊   ├ ID: <code>{id}</code>\n┊   ├ First Name: {first}\n┊   ├ Last Name: {last}\n┊   └ User Name: {username}\n┊\n└ @{client.username}.format(
+                first = message.from_user.first_name,
+                last = "" if not message.from_user.last_name else ' ' + message.from_user.last_name,
+                username = None if not message.from_user.username else '@' + message.from_user.username,
+                mention = message.from_user.mention,
+                id = message.from_user.id
+            )",
+        reply_markup = None,
+        quote = True,
+        disable_web_page_preview = True
+    )
