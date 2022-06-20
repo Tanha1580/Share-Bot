@@ -60,7 +60,11 @@ async def start_command(client: Client, message: Message):
                         if i < end:
                             break
             else:
-                await message.reply("⛔ شناسه فایل اشتباه است.")
+                dm = await message.reply("⛔ شناسه فایل اشتباه است.", quote = True)
+                await asyncio.sleep(0.1)
+                await dm.reply_to_message.delete()
+                await asyncio.sleep(3)
+                await dm.delete()
                 return
         elif len(argument) == 2:
             cw = argument[0]
@@ -70,7 +74,11 @@ async def start_command(client: Client, message: Message):
                 except:
                     return
             else:
-                await message.reply("⛔ شناسه فایل اشتباه است.")
+                dn = await message.reply("⛔ شناسه فایل اشتباه است.", quote = True)
+                await asyncio.sleep(0.1)
+                await dn.reply_to_message.delete()
+                await asyncio.sleep(3)
+                await dn.delete()
                 return
         temp_msg = await message.reply("⏳ لطفا صبر کنید ...")
         try:
