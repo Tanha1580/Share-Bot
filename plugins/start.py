@@ -89,7 +89,7 @@ async def start_command(client: Client, message: Message):
                     pg = await message.reply(f"⚠️ خطا در دریافت پیام!\n\n⭕ پیام مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردیده است!\n<b>Message_ID:</b> <s>{texxt}</s>")
                     await asyncio.sleep(10)
                     await pg.delete()
-                    pass
+                    goto tu
                 else:
                     pass
 
@@ -103,6 +103,7 @@ async def start_command(client: Client, message: Message):
                 await ms.edit(f"🚮 پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
                 await asyncio.sleep(12)
                 await ms.delete()
+                tu = await asyncio.sleep(0.1)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 fontt = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
@@ -111,7 +112,7 @@ async def start_command(client: Client, message: Message):
                     pgg = await message.reply(f"⚠️ خطا!\n\n⭕ پست مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردید!\n<b>Message_id:</b> <s>{texxt}</s>")
                     await asyncio.sleep(10)
                     await pgg.delete()
-                    pass
+                    goto tuu
                 else:
                     pass
 
@@ -125,6 +126,7 @@ async def start_command(client: Client, message: Message):
                 await mss.edit(f"🚮 پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
                 await asyncio.sleep(12)
                 await mss.delete()
+                tuu = await asyncio.sleep(0.1)
             except:
                 pass
         return
