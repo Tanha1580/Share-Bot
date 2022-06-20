@@ -156,19 +156,19 @@ async def convertt(texxt: str) -> str:
 
 async def cconvert(teext: str) -> str:
     table = str.maketrans({
-        "A": "W", "N": "V",
-        "B": "R", "O": "I",
-        "C": "K", "P": "F",
-        "D": "P", "Q": "M",
-        "E": "E", "R": "C",
-        "F": "D", "S": "N",
-        "G": "O", "T": "A",
-        "H": "J", "U": "L",
-        "I": "B", "V": "Z",
-        "J": "S", "W": "E",
-        "K": "Q", "X": "H",
-        "L": "U", "Y": "T",
-        "M": "X", "Z": "Y",
+        "T": "A", "S": "N",
+        "I": "B", "G": "O",
+        "R": "C", "D": "P",
+        "F": "D", "K": "Q",
+        "W": "E", "B": "R",
+        "P": "F", "J": "S",
+        "E": "G", "U": "T",
+        "X": "H", "L": "U",
+        "O": "I", "N": "V",
+        "H": "J", "A": "W",
+        "C": "K", "M": "X",
+        "U": "L", "Z": "Y",
+        "Q": "M", "V": "Z",
     })
     return teext.translate(table)
 
