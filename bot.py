@@ -31,9 +31,10 @@ class Bot(Client):
                     await self.export_chat_invite_link(FORCE_SUB_CHANNEL_1)
                     link = (await self.get_chat(FORCE_SUB_CHANNEL_1)).invite_link
                     if CUSTOM_LINK_1:
-                        self.invitelink1 = CUSTOM_LINK_1
+                        li_nk = CUSTOM_LINK_1
                     else:
-                        self.invitelink1 = link
+                        li_nk = link
+                self.invitelink1 = li_nk
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning("Bot can't Export Invite link from First Force Sub Channel!")
