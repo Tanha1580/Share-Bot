@@ -87,11 +87,11 @@ async def start_command(client: Client, message: Message):
 
                 if not font:
                     pg = await message.reply(f"⚠️ خطا در دریافت پیام!\n\n⭕ پیام مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردیده است!\n<b>Message_ID:</b> <s>{texxt}</s>")
-                    await asyncio.sleep(15)
+                    await asyncio.sleep(10)
                     await pg.delete()
-                    return
+                    pass
                 else:
-                     pass
+                    pass
 
                 await asyncio.sleep(0.3)
                 ms = await message.reply("⏳ پیام بالا تا 30 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
@@ -109,9 +109,9 @@ async def start_command(client: Client, message: Message):
 
                 if not fontt:
                     pgg = await message.reply(f"⚠️ خطا!\n\n⭕ پست مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردید!\n<b>Message_id:</b> <s>{texxt}</s>")
-                    await asyncio.sleep(15)
+                    await asyncio.sleep(10)
                     await pgg.delete()
-                    return
+                    pass
                 else:
                     pass
 
