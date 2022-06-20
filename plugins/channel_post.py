@@ -43,7 +43,7 @@ async def new_post(client: Client, message: Message):
         return
 
     converted_id = (message.message_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)
-    textt = f"ADMIN-{converted_id}"
+    textt = f"13-{converted_id}"
     string = await convert(textt)
     teext = await encode(string)
     base64_string = await cconvert(teext)
