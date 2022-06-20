@@ -86,7 +86,7 @@ async def start_command(client: Client, message: Message):
                 font = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
 
                 if not font:
-                    pg = await message.reply(f"⚠️ خطا!\n\n⭕ پست مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردید!\n<b>Message_ID:</b> <s>{texxt}</s>")
+                    pg = await message.reply(f"⚠️ خطا در دریافت پیام!\n\n⭕ پیام مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردیده است!\n<b>Message_ID:</b> <s>{texxt}</s>")
                     await asyncio.sleep(15)
                     await pg.delete()
                     return
@@ -94,18 +94,14 @@ async def start_command(client: Client, message: Message):
                      pass
 
                 await asyncio.sleep(0.3)
-                ms = await message.reply("⏳ پیام بالا تا 30 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.", quote = True)
-                await asyncio.sleep(15)
-                await ms.edit("⏳ پیام بالا تا 15 ثانیه دیگر پاک میشود!\nلطفا قبل از پاک شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
-                await asyncio.sleep(15)
+                ms = await message.reply("⏳ پیام بالا تا 30 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                await asyncio.sleep(20)
+                await ms.edit("⏳ پیام بالا تا 10 ثانیه دیگر پاک میشود!\nلطفا قبل از پاک شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                await asyncio.sleep(10)
                 await font.delete()
                 await asyncio.sleep(0.2)
                 await ms.edit(f"🚮 پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
-                await asyncio.sleep(10)
-                try:
-                    await ms.reply_to_message.delete()
-                except:
-                    pass
+                await asyncio.sleep(12)
                 await ms.delete()
             except FloodWait as e:
                 await asyncio.sleep(e.x)
@@ -120,18 +116,14 @@ async def start_command(client: Client, message: Message):
                     pass
 
                 await asyncio.sleep(0.3)
-                mss = await message.reply("⏳ پیام بالا تا 30 ثانیه دیگر پاک میشود!\nلطفا قبل از پاک شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.", quote = True)
-                await asyncio.sleep(15)
-                await ms.edit("⏳ پیام بالا تا 15 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
-                await asyncio.sleep(15)
+                mss = await message.reply("⏳ پیام بالا تا 30 ثانیه دیگر پاک میشود!\nلطفا قبل از پاک شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                await asyncio.sleep(20)
+                await ms.edit("⏳ پیام بالا تا 10 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                await asyncio.sleep(10)
                 await font.delete()
                 await asyncio.sleep(0.2)
                 await mss.edit(f"🚮 پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
-                await asyncio.sleep(10)
-                try:
-                    await mss.reply_to_message.delete()
-                except:
-                    pass
+                await asyncio.sleep(12)
                 await mss.delete()
             except:
                 pass
@@ -238,15 +230,15 @@ async def id_command(client: Client, message: Message):
         string = await reconvert(ttext)
         argument = string.split("-")
         if len(argument) == 3:
-            await message.reply("🔰 این لینک مربوط به ارسال فایل گروهی و توسط ادمین ربات ساخته شده است.", quote = True)
+            await message.reply("🔰 این لینک مربوط به ارسال گروهی فایل بوده و توسط ادمین ربات ساخته شده است.", quote = True)
         elif len(argument) == 2:
             if argument[0] == "Example":
-                await message.reply("🆔 آیدی عددی صاحب پیام :\n[ <code>Example</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\nhttps://t.me/c/channel_id/post_id", quote = True)
+                await message.reply("🆔 آیدی عددی صاحب پیام :\n[ <code>Example</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\nhttps://t.me/c/Channel_ID/Post_ID", quote = True)
             else:
                 try:
                     user = argument[0]
                     ids = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[6:]))
-                    await message.reply(f"🆔 آیدی عددی صاحب پیام :\n[ <code>{user}</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\nhttps://t.me/c/{str(abs(client.db_channel.id))[3:]}/{ids}", quote = True)
+                    await message.reply(f"🆔 آیدی عددی صاحب پیام :\n[ <code>{user}</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\n<a href='https://t.me/c/{str(abs(client.db_channel.id))[3:]}/{ids}'>Go:{ids}</a>\n\nDeveloper: <a href='https://t.me/Ali4702'>𝗔𝗹𝗶😎</a>", quote = True)
                 except:
                     return
     else:
