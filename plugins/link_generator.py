@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from bot import Bot
 from config import ADMINS, X_NUM
-from helper_func import encode, get_message_id, convert
+from helper_func import encode, get_message_id, convert, cconvert
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('batch'))
 async def batch(client: Client, message: Message):
@@ -33,11 +33,11 @@ async def batch(client: Client, message: Message):
             continue
 
 
-    textt = f"batch-{(f_msg_id * int(str(abs(client.db_channel.id))[8:]) + X_NUM)}-{(s_msg_id * int(str(abs(client.db_channel.id))[8:]) + X_NUM)}"
+    textt = f"BATCH-{(f_msg_id * int(str(abs(client.db_channel.id))[8:]) + X_NUM)}-{(s_msg_id * int(str(abs(client.db_channel.id))[8:]) + X_NUM)}"
     string = await convert(textt)
-    base64_string = await encode(string)
-    base_64string = base64_string.swapcase()
-    link = f"t.me/{client.username}?start={base_64string}"
+    teext = await encode(string)
+    base64_string = await cconvert(teext)
+    link = f"https://t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
     await second_message.reply_text(f"🔗 لینک ایجاد شده برای فایل شما\n\n─══════─✦─══════─\n{link}\n─══════─✦─══════─\n\n🆔️ @{client.username}", quote=True, reply_markup=reply_markup, disable_web_page_preview = True)
 
@@ -56,9 +56,9 @@ async def link_generator(client: Client, message: Message):
             await channel_message.reply("❌ خطا\n\nاین [ پست / لینک ] از کانال دیتابیس نیست یا حذف شده است.", quote = True)
             continue
 
-    string = await convert(f"genlink-{(msg_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)}")
-    base64_string = await encode(string)
-    base_64string = base64_string.swapcase()
-    link = f"t.me/{client.username}?start={base_64string}"
+    string = await convert(f"GENLINK-{(msg_id * int(str(abs(client.db_channel.id))[6:]) + X_NUM)}")
+    teext = await encode(string)
+    base64_string = await cconvert(teext)
+    link = f"hrrps://t.me/{client.username}?start={base_64string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
     await channel_message.reply_text(f"🔗 لینک ایجاد شده برای فایل شما\n\n─══════─✦─══════─\n{link}\n─══════─✦─══════─\n\n🆔️ @{client.username}", quote=True, reply_markup=reply_markup, disable_web_page_preview = True)
