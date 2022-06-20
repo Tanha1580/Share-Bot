@@ -85,13 +85,13 @@ async def start_command(client: Client, message: Message):
             try:
                 font = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
 
-                    if not font:
-                        pg = await message.reply("⭕ پست مورد نظر توسط ادمین ربات از دیتابیس ربات حذف گردید!")
-                        await asyncio.sleep(8)
-                        await pg.delete()
-                        return
-                    else:
-                         pass
+                if not font:
+                    pg = await message.reply("⭕ پست مورد نظر توسط ادمین ربات از دیتابیس ربات حذف گردید!")
+                    await asyncio.sleep(8)
+                    await pg.delete()
+                    return
+                else:
+                     pass
 
                 await asyncio.sleep(0.3)
                 ms = await message.reply("پیام بالا تا 30 ثانیه دیگر پاک میشود. لطفا قبل از پاک شدن آن را در saved messages تلگرام خود ذخیره کنید.")
@@ -106,13 +106,13 @@ async def start_command(client: Client, message: Message):
                 await asyncio.sleep(e.x)
                 fontt = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
 
-                    if not fontt:
-                        pgg = await message.reply("⭕ پست مورد نظر توسط ادمین ربات از دیتابیس ربات حذف گردید!")
-                        await asyncio.sleep(8)
-                        await pgg.delete()
-                        return
-                    else:
-                        pass
+                if not fontt:
+                    pgg = await message.reply("⭕ پست مورد نظر توسط ادمین ربات از دیتابیس ربات حذف گردید!")
+                    await asyncio.sleep(8)
+                    await pgg.delete()
+                    return
+                else:
+                    pass
 
                 await asyncio.sleep(0.3)
                 mss = await message.reply("پیام بالا تا 30 ثانیه دیگر پاک میشود. لطفا قبل از پاک شدن آن را در saved messages تلگرام خود ذخیره کنید.")
