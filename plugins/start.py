@@ -255,16 +255,18 @@ async def id_command(client: Client, message: Message):
         string = await reconvert(ttext)
         argument = string.split("-")
         if len(argument) == 3:
-            await message.reply("🔰 این لینک مربوط به ارسال گروهی فایل بوده و توسط ادمین ربات ساخته شده است.", quote = True)
+            start = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[8:]))
+            end = int((int(argument[2]) - X_NUM) / int(str(abs(client.db_channel.id))[8:]))
+            await message.reply(f"🔰 این لینک مربوط به ارسال گروهی فایل بوده و توسط ادمین ربات ساخته شده است.\n\n🔗 لینک پست در کانال دیتابیس:\n<a href='https://t.me/c/{str(abs(client.db_channel.id))[3:]}/{start}'>Start:{start}</a> , <a href='https://t.me/c/{str(abs(client.db_channel.id))[3:]}/{end}'>End:{end}</a>\n─═══─✦─═══─\n𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋: <a href='https://t.me/Ali4702'>𝙰𝚕𝚒😎</a>", disable_web_page_preview = True, quote = True)
         elif len(argument) == 2:
             nm = argument[0]
             ids = int((int(argument[1]) - X_NUM) / int(str(abs(client.db_channel.id))[6:]))
             if nm == "Example":
                 await message.reply("🆔 آیدی عددی صاحب پیام :\n[ <code>Example</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\nhttps://t.me/c/Channel_ID/Post_ID", quote = True)
             if nm == "12":
-                await message.reply(f"🔰 این لینک مربوط به دستور /genlink و توسط ادمین‌های ربات ساخته شده است.\n\n🔗 لینک پست در کانال دیتابیس:\n<a href='https://t.me/c/{str(abs(client.db_channel.id))[3:]}/{ids}'>Goto:{ids}</a>\n─══─✦─══─\n𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋: <a href='https://t.me/Ali4702'>𝙰𝚕𝚒😎</a>",disable_web_page_preview = True, quote = True)
+                await message.reply(f"🔰 این لینک مربوط به دستور /genlink و توسط ادمین‌های ربات ساخته شده است.\n\n🔗 لینک پست در کانال دیتابیس:\n<a href='https://t.me/c/{str(abs(client.db_channel.id))[3:]}/{ids}'>Goto:{ids}</a>\n─══─✦─══─\n𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋: <a href='https://t.me/Ali4702'>𝙰𝚕𝚒😎</a>", disable_web_page_preview = True, quote = True)
             if nm == "13":
-                await message.reply(f"🔰 این لینک مربوط به ارسال فایل به صورت مستقیم در کانال توسط ادمین میباشد.\n\n🔗 لینک پست در کانال دیتابیس:\n<a href='https://t.me/c/{str(abs(client.db_channel.id))[3:]}/{ids}'>Goto:{ids}</a>\n─══─✦─══─\n𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋: <a href='https://t.me/Ali4702'>𝙰𝚕𝚒😎</a>",disable_web_page_preview = True, quote = True)
+                await message.reply(f"🔰 این لینک مربوط به ارسال فایل به صورت مستقیم در کانال توسط ادمین میباشد.\n\n🔗 لینک پست در کانال دیتابیس:\n<a href='https://t.me/c/{str(abs(client.db_channel.id))[3:]}/{ids}'>Goto:{ids}</a>\n─══─✦─══─\n𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋: <a href='https://t.me/Ali4702'>𝙰𝚕𝚒😎</a>", disable_web_page_preview = True, quote = True)
             if not nm == "13" and not nm == "12":
                 await message.reply(f"🆔 آیدی عددی صاحب پیام :\n[ <code>{nm}</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\n<a href='https://t.me/c/{str(abs(client.db_channel.id))[3:]}/{ids}'>Goto:{ids}</a>\n─══─✦─══─\n𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋: <a href='https://t.me/Ali4702'>𝙰𝚕𝚒😎</a>", disable_web_page_preview = True, quote = True)
     else:
