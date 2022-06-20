@@ -16,7 +16,7 @@ from database.sql import add_user, query_msg, full_userbase
 
 WAIT_MSG = """⚙ در حال پردازش ..."""
 
-GET_MSG = """├from {mention}\n┊   ├ ID: <code>{id}</code>\n┊   ├ First Name: {first}\n┊   ├ Last Name: {last}\n┊   └ User Name: {username}\n┊\n└ 𝗣𝗿𝗼𝗱𝘂𝗰𝘁 𝗯𝘆 𝗙𝗼𝗻𝘁𝗴𝗮𝗵𝗧𝗲𝗮𝗺"""
+GET_MSG = """Message from {mention}\n  ├ from\n  ┊   ├ ID: <code>{id}</code>\n  ┊   ├ DC: {dc}\n  ┊   ├ First Name: {first}\n  ┊   ├ Last Name: {last}\n  ┊   └ User Name: {username}\n  ┊\n  └ 𝗣𝗿𝗼𝗱𝘂𝗰𝘁 𝗯𝘆 𝗙𝗼𝗻𝘁𝗴𝗮𝗵𝗧𝗲𝗮𝗺"""
 
 REPLY_ERROR = """📢 اطلاع‌رسانی\n\nروی پیام مورد نظر ریپلای نمائید و مجدد <code>/broadcast</code> را ارسال کنید."""
 
@@ -232,6 +232,7 @@ async def get_info(client: Client, message: Message):
                 last = "" if not message.from_user.last_name else ' ' + message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
                 mention = message.from_user.mention,
+                dc = message.from_user.dc_id
                 id = message.from_user.id
             ),
         reply_markup = None,
