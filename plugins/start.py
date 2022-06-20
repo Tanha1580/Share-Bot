@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from bot import Bot
 from config import ADMINS, FORCE_MSG, START_MSG, OWNER_ID, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, X_NUM
 from .button import fsub_button
-from helper_func import subscribed, subch1, subch2, subch3, subch4, encode, decode, get_messages, convert, reconvert
+from helper_func import subscribed, subch1, subch2, subch3, subch4, encode, decode, get_messages, convert, reconvert, cconvert, convertt
 from database.sql import add_user, query_msg, full_userbase
 
 
@@ -16,7 +16,7 @@ from database.sql import add_user, query_msg, full_userbase
 
 WAIT_MSG = """⚙ در حال پردازش ..."""
 
-GET_MSG = """<b>User Information</b>\n  ├ from {mention}\n  ┊   ├ ID: <code>{id}</code>\n  ┊   ├ DC: {dc}\n  ┊   ├ First Name: {first}\n  ┊   ├ Last Name: {last}\n  ┊   └ User Name: {username}\n  ┊\n  └ 𝗣𝗿𝗼𝗱𝘂𝗰𝘁 𝗯𝘆 𝗙𝗼𝗻𝘁𝗴𝗮𝗵𝗧𝗲𝗮𝗺"""
+GET_MSG = """<b>User Information</b>\n  ├ from {mention}\n  ┊   ├ DC: {dc}\n  ┊   ├ ID: <code>{id}</code>\n  ┊   ├ First Name: {first}\n  ┊   ├ Last Name: {last}\n  ┊   └ User Name: {username}\n  ┊\n  └ 𝗣𝗿𝗼𝗱𝘂𝗰𝘁 𝗯𝘆 𝗙𝗼𝗻𝘁𝗴𝗮𝗵𝗧𝗲𝗮𝗺"""
 
 REPLY_ERROR = """📢 اطلاع‌رسانی\n\nروی پیام مورد نظر ریپلای نمائید و مجدد <code>/broadcast</code> را ارسال کنید."""
 
@@ -34,8 +34,8 @@ async def start_command(client: Client, message: Message):
     text = message.text
     if len(text)>7:
         try:
-            base_64string = text.swapcase()
-            base64_string = base_64string.split(" ", 1)[1]
+            texxt = text.split(" ", 1)[1]
+            base64_string = await convertt(texxt)
         except:
             return
         ttext = await decode(base64_string)
@@ -202,8 +202,8 @@ async def id_command(client: Client, message: Message):
     text = message.text
     if len(text)>10:
         try:
-            base_64string = text.swapcase()
-            base64_string = base_64string.split(" ", 1)[1]
+            texxt = text.split(" ", 1)[1]
+            base64_string = await convertt(texxt)
         except:
             return
         ttext = await decode(base64_string)
