@@ -233,7 +233,7 @@ async def get_user_info(client: Client, message: Message):
                 username = None if not message.from_user.username else '@' + message.from_user.username,
                 mention = message.from_user.mention,
                 id = message.from_user.id
-            )",
+            ),
         reply_markup = None,
         quote = True,
         disable_web_page_preview = True
