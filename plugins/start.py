@@ -248,8 +248,12 @@ async def id_command(client: Client, message: Message):
         if len(argument) == 3:
             await message.reply("🔰 این لینک مربوط به ارسال گروهی فایل بوده و توسط ادمین ربات ساخته شده است.", quote = True)
         elif len(argument) == 2:
+        nm = argument[0]
             if argument[0] == "Example":
                 await message.reply("🆔 آیدی عددی صاحب پیام :\n[ <code>Example</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\nhttps://t.me/c/Channel_ID/Post_ID", quote = True)
+            elif nm.isalnum() == True:
+                await message.reply("⛔ شناسه فایل اشتباه است.")
+                return
             else:
                 try:
                     user = argument[0]
