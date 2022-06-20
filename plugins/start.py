@@ -94,19 +94,19 @@ async def start_command(client: Client, message: Message):
                      pass
 
                 await asyncio.sleep(0.3)
-                ms = await message.reply("⏳ پیام بالا تا 30 ثانیه دیگر پاک میشود!\nلطفا قبل از پاک شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.", quote = True)
+                ms = await message.reply("⏳ پیام بالا تا 30 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.", quote = True)
                 await asyncio.sleep(15)
                 await ms.edit("⏳ پیام بالا تا 15 ثانیه دیگر پاک میشود!\nلطفا قبل از پاک شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
                 await asyncio.sleep(15)
                 await font.delete()
                 await asyncio.sleep(0.2)
-                await ms.edit(f"پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
+                await ms.edit(f"🚮 پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
                 await asyncio.sleep(10)
-                await ms.delete()
                 try:
                     await ms.reply_to_message.delete()
                 except:
                     pass
+                await ms.delete()
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 fontt = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
@@ -122,17 +122,17 @@ async def start_command(client: Client, message: Message):
                 await asyncio.sleep(0.3)
                 mss = await message.reply("⏳ پیام بالا تا 30 ثانیه دیگر پاک میشود!\nلطفا قبل از پاک شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.", quote = True)
                 await asyncio.sleep(15)
-                await ms.edit("⏳ پیام بالا تا 15 ثانیه دیگر پاک میشود!\nلطفا قبل از پاک شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
+                await ms.edit("⏳ پیام بالا تا 15 ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
                 await asyncio.sleep(15)
                 await font.delete()
                 await asyncio.sleep(0.2)
-                await mss.edit(f"پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
+                await mss.edit(f"🚮 پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
                 await asyncio.sleep(10)
-                await mss.delete()
                 try:
                     await mss.reply_to_message.delete()
                 except:
                     pass
+                await mss.delete()
             except:
                 pass
         return
