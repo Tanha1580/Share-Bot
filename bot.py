@@ -24,23 +24,22 @@ class Bot(Client):
         await super().start()
         usr_bot_me = await self.get_me()
 
-        if FORCE_SUB_CHANNEL_1:
-            try:
-                link = (await self.get_chat(FORCE_SUB_CHANNEL_1)).invite_link
-                if not link:
-                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL_1)
+        if CUSTOM_LINK_1:
+            self.invitelink1 = CUSTOM_LINK_1
+        else:
+            if FORCE_SUB_CHANNEL_1:
+                try:
                     link = (await self.get_chat(FORCE_SUB_CHANNEL_1)).invite_link
-                    if CUSTOM_LINK_1:
-                        li_nk = CUSTOM_LINK_1
-                    else:
-                        li_nk = link
-                self.invitelink1 = li_nk
-            except Exception as a:
-                self.LOGGER(__name__).warning(a)
-                self.LOGGER(__name__).warning("Bot can't Export Invite link from First Force Sub Channel!")
-                self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_1 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL_1}")
-                self.LOGGER(__name__).info("\nBot Stopped.")
-                sys.exit()
+                    if not link:
+                        await self.export_chat_invite_link(FORCE_SUB_CHANNEL_1)
+                        link = (await self.get_chat(FORCE_SUB_CHANNEL_1)).invite_link
+                    self.invitelink1 = link
+                except Exception as a:
+                    self.LOGGER(__name__).warning(a)
+                    self.LOGGER(__name__).warning("Bot can't Export Invite link from First Force Sub Channel!")
+                    self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL_1 value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL_1}")
+                    self.LOGGER(__name__).info("\nBot Stopped.")
+                    sys.exit()
 
         if CUSTOM_LINK_2:
             self.invitelink2 = CUSTOM_LINK_2
