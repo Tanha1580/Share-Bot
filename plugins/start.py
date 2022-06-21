@@ -61,11 +61,12 @@ async def start_command(client: Client, message: Message):
         temp_msg = await message.reply("⚙ در حال پردازش لینک\n⏳ لطفا صبر کنید ...")
         try:
             messages = await get_messages(client, ids)
-            await temp_msg.edit("📤 در حال ارسال ...")
+            sendi = await message.reply("📤 در حال ارسال ...")
             await asyncio.sleep(0.2)
         except:
             await message.reply_text("❗️مشکلی رخ داد !")
             return
+        await temp_msg.delete()
 
         for msg in messages:
 
@@ -85,7 +86,7 @@ async def start_command(client: Client, message: Message):
                     await asyncio.sleep(0.1)
                 else:
                     try:
-                       await temp_msg.delete()
+                       await sendi.delete()
                     except:
                        await asyncio.sleep(0.4)
             except FloodWait as e:
