@@ -61,7 +61,7 @@ async def start_command(client: Client, message: Message):
         temp_msg = await message.reply("⚙ در حال پردازش لینک\n⏳ لطفا صبر کنید ...")
         try:
             messages = await get_messages(client, ids)
-            await temp_msg.edit(🔰 در حال ارسال ...)
+            await temp_msg.edit("📤 در حال ارسال ...")
             await asyncio.sleep(0.2)
         except:
             await message.reply_text("❗️مشکلی رخ داد !")
