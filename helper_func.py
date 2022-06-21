@@ -24,6 +24,52 @@ async def is_subscribed(filter, client, update):
     else:
         return True
 
+async def convert(textt: str) -> str:
+    table = str.maketrans({
+        "A": "G", "B": "U",
+        "C": "M", "D": "V",
+        "E": "B", "F": "P",
+        "G": "Q", "H": "E",
+        "I": "L", "J": "R",
+        "K": "J", "L": "X",
+        "M": "H", "N": "I",
+        "O": "T", "P": "N",
+        "Q": "C", "R": "O",
+        "S": "A", "T": "F",
+        "U": "Y", "V": "D",
+        "W": "Z", "X": "K",
+        "Y": "W", "Z": "S",
+        "0": "4", "1": "6",
+        "2": "3", "3": "7",
+        "4": "0", "5": "8",
+        "6": "1", "7": "9",
+        "8": "2", "9": "5"
+    })
+    return textt.translate(table)
+
+async def reconvert(ttext: str) -> str:
+    table = str.maketrans({
+        "G": "A", "U": "B",
+        "M": "C", "V": "D",
+        "B": "E", "P": "F",
+        "Q": "G", "E": "H",
+        "L": "I", "R": "J",
+        "J": "K", "X": "L",
+        "H": "M", "I": "N",
+        "T": "O", "N": "P",
+        "C": "Q", "O": "R",
+        "A": "S", "F": "T",
+        "Y": "U", "D": "V",
+        "Z": "W", "K": "X",
+        "W": "Y", "S": "Z",
+        "4": "0", "6": "1",
+        "3": "2", "7": "3",
+        "0": "4", "8": "5",
+        "1": "6", "9": "7",
+        "2": "8", "5": "9"
+    })
+    return ttext.translate(table)
+
 async def encode(string):
     string_bytes = string.encode("ascii")
     base64_bytes = base64.urlsafe_b64encode(string_bytes)
