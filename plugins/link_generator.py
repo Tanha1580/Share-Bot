@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from bot import Bot
 from config import ADMINS, STATIC_NUM
-from helper_func import encode, get_message_id
+from helper_func import encode, get_message_id, convert
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('batch'))
 async def batch(client: Client, message: Message):
@@ -35,7 +35,8 @@ async def batch(client: Client, message: Message):
 
     string = f"{(f_msg_id * int(str(abs(client.db_channel.id))[8:])) + STATIC_NUM}-{(s_msg_id * int(str(abs(client.db_channel.id))[8:])) + STATIC_NUM}"
     base64_string = await encode(string)
-    link = f"https://t.me/{client.username}?start={base64_string}"
+    base_64string = await convert(base64_string)
+    link = f"https://t.me/{client.username}?start={base_64string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
     await second_message.reply_text(f"🔗 لینک ایجاد شده برای فایل شما\n\n─═════─✦─═════─\n{link}", quote=True, reply_markup=reply_markup, disable_web_page_preview = True)
 
@@ -55,6 +56,7 @@ async def link_generator(client: Client, message: Message):
             continue
 
     base64_string = await encode(f"{(msg_id * int(str(abs(client.db_channel.id))[6:])) + STATIC_NUM}")
-    link = f"https://t.me/{client.username}?start={base64_string}"
+    base_64string = await convert(base64_string)
+    link = f"https://t.me/{client.username}?start={base_64string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
     await channel_message.reply_text(f"🔗 لینک ایجاد شده برای فایل شما\n\n─═════─✦─═════─\n{link}", quote=True, reply_markup=reply_markup, disable_web_page_preview = True)
