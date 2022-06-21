@@ -58,9 +58,11 @@ async def start_command(client: Client, message: Message):
                 ids = [int((int(argument[0]) - STATIC_NUM) / int(str(abs(client.db_channel.id))[6:]))]
             except:
                 return
-        temp_msg = await message.reply("⏳ لطفا صبر کنید ...")
+        temp_msg = await message.reply("⚙ در حال پردازش لینک\n⏳ لطفا صبر کنید ...")
         try:
             messages = await get_messages(client, ids)
+            await temp_msg.edit(📤 در حال ارسال)
+            await asyncio.sleep(0.2)
         except:
             await message.reply_text("❗️مشکلی رخ داد !")
             return
@@ -83,7 +85,7 @@ async def start_command(client: Client, message: Message):
                 if not hd:
                     await asyncio.sleep(0.1)
                 else:
-                    await asyncio.sleep(0.5)
+                    await asyncio.sleep(0.3)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
