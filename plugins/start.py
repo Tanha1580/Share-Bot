@@ -32,16 +32,16 @@ async def start_command(client: Client, message: Message):
     if len(text)>7:
         try:
             base_64string = text.split(" ", 1)[1]
+            base64_string = await reconvert(base_64string)
         except:
             return
         try:
-            base64_string = await reconvert(base_64string)
+            string = await decode(base64_string)
         except:
             dy = await message.reply("⛔ شناسه فایل اشتباه است.")
             await asyncio.sleep(4)
             await dy.delete()
             return
-        string = await decode(base64_string)
         argument = string.split("-")
         if len(argument) == 2:
             try:
