@@ -66,7 +66,6 @@ async def start_command(client: Client, message: Message):
         except:
             await message.reply_text("❗️مشکلی رخ داد !")
             return
-        await temp_msg.delete()
 
         for msg in messages:
 
@@ -85,7 +84,10 @@ async def start_command(client: Client, message: Message):
                 if not hd:
                     await asyncio.sleep(0.1)
                 else:
-                    await asyncio.sleep(0.3)
+                    try:
+                       await temp_msg.delete()
+                    except:
+                       await asyncio.sleep(0.3)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
