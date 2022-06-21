@@ -7,7 +7,7 @@ from pyrogram.errors import FloodWait
 
 from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, STATIC_NUM
-from helper_func import encode
+from helper_func import encode, convert
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & ~filters.command(['start','users','broadcast','batch','genlink']))
 async def channel_post(client: Client, message: Message):
@@ -24,7 +24,8 @@ async def channel_post(client: Client, message: Message):
     converted_id = (post_message.message_id * int(str(abs(client.db_channel.id))[6:])) + STATIC_NUM
     string = f"{converted_id}"
     base64_string = await encode(string)
-    link = f"https://t.me/{client.username}?start={base64_string}"
+    base_64string = await convert(base64_string)
+    link = f"https://t.me/{client.username}?start={base_64string}"
 
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
 
@@ -33,7 +34,7 @@ async def channel_post(client: Client, message: Message):
     if not DISABLE_CHANNEL_BUTTON:
         await post_message.edit_reply_markup(reply_markup)
 
-@Bot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID) & ~filters.edited)
+@Bot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
 async def new_post(client: Client, message: Message):
 
     if DISABLE_CHANNEL_BUTTON:
@@ -42,7 +43,8 @@ async def new_post(client: Client, message: Message):
     converted_id = (message.message_id * int(str(abs(client.db_channel.id))[6:])) + STATIC_NUM
     string = f"{converted_id}"
     base64_string = await encode(string)
-    link = f"https://t.me/{client.username}?start={base64_string}"
+    base_64string = await convert(base64_string)
+    link = f"https://t.me/{client.username}?start={base_64string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• اشتراک گذاری لینک", url=f'https://telegram.me/share/url?url={link}')]])
     try:
         await message.edit_reply_markup(reply_markup)
