@@ -7,7 +7,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 
 from bot import Bot
 from config import ADMINS, FORCE_MSG, START_MSG, OWNER_ID, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, STATIC_NUM
-from helper_func import subscribed, encode, decode, get_messages
+from helper_func import subscribed, encode, decode, get_messages, convert, reconvert
 from database.sql import add_user, query_msg, full_userbase
 
 
@@ -31,8 +31,15 @@ async def start_command(client: Client, message: Message):
     text = message.text
     if len(text)>7:
         try:
-            base64_string = text.split(" ", 1)[1]
+            base_64string = text.split(" ", 1)[1]
         except:
+            return
+        try:
+            base64_string = await reconvert(base_64string)
+        except:
+            dy = await message.reply("⛔ شناسه فایل اشتباه است.")
+            await asyncio.sleep(4)
+            await dy.delete()
             return
         string = await decode(base64_string)
         argument = string.split("-")
@@ -78,11 +85,18 @@ async def start_command(client: Client, message: Message):
                 reply_markup = None
 
             try:
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-                await asyncio.sleep(0.4)
+                mp = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                if not mp:
+                    await message.reply("⚠️ خطا در دریافت پیام!\n\n⭕ پیام مورد نظر توسط ادمین، از دیتابیس ربات حذف گردیده است!")
+                else:
+                    await asyncio.sleep(0.4)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                mpp = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                if not mpp:
+                    await message.reply("⚠️ خطا در دریافت پیام!\n\n⭕ پیام مورد نظر توسط ادمین، از دیتابیس ربات حذف گردیده است!")
+                else:
+                    pass
             except:
                 pass
         return
