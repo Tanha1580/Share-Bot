@@ -165,7 +165,7 @@ async def start_command(client: Client, message: Message):
                 mention = message.from_user.mention,
                 id = message.from_user.id
             ),
-            reply_markup = reply_markup_admin if message.from_user.id in ADMINS else reply_markup,
+            reply_markup = reply_markup_admin if id in ADMINS else reply_markup,
             disable_web_page_preview = True,
             quote = True
         )
