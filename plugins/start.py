@@ -283,7 +283,7 @@ async def send_text(client: Bot, message: Message):
         await msg.delete()
 
 @Bot.on_message(filters.private & filters.command('forward') & filters.user(ADMINS))
-async def send_text(client: Bot, message: Message):
+async def forward_message(client: Bot, message: Message):
     if message.reply_to_message:
         query = await query_msg()
         broadcast_msg = message.reply_to_message
