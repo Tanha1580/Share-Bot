@@ -16,11 +16,42 @@ from database.sql import add_user, query_msg, full_userbase
 
 WAIT_MSG = """⚙ در حال پردازش ..."""
 
-GET_MSG = """<b>User Information</b>\n  ├ from {mention}\n  ┊ ├ DC: {dc}\n  ┊ ├ ID: <code>{id}</code>\n  ┊ ├ First Name: {first}\n  ┊ ├ Last Name: {last}\n  ┊ └ User Name: {username}\n  ┊\n  └ 𝗣𝗿𝗼𝗱𝘂𝗰𝘁 𝗯𝘆 𝗙𝗼𝗻𝘁𝗴𝗮𝗵𝗧𝗲𝗮𝗺"""
+GET_MSG = """<b>User Information</b>
+  ├ from {mention}
+  ┊ ├ DC: {dc}
+  ┊ ├ ID: <code>{id}</code>
+  ┊ ├ First Name: {first}
+  ┊ ├ Last Name: {last}
+  ┊ └ User Name: {username}
+  ┊
+  └ 𝗣𝗿𝗼𝗱𝘂𝗰𝘁 𝗯𝘆 𝗙𝗼𝗻𝘁𝗴𝗮𝗵𝗧𝗲𝗮𝗺
+"""
 
 REPLY_ERROR = """📢 اطلاع‌رسانی\n\nروی پیام مورد نظر ریپلای نمائید و مجدد <code>/broadcast</code> را ارسال کنید."""
 
-HELP_MSG = """📃راهنمای دستورات ربات:\n\n/users - دریافت آمار کاربران ربات\n\n/id - دریافت اطلاعات کاربر\n\n/senderid [msg_id] - دریافت اطلاعات پست\n\n/broadcast - ارسال پیام به کاربران ربات\n\n/genlink - ساخت لینک برای پست کانال\n\n/batch - لینک ارسال گروهی فایل\n\n/help - راهنمای ربات"""
+HELP_MSG = """‎📃راهنمای دستورات ربات:
+
+‎◌ /users ↴
+  ᴥ دریافت آمار کاربران ربات
+
+‎◌ /id ↴
+  ᴥ دریافت اطلاعات کاربر
+
+‎◌ /senderid ↴
+  ᴥ دریافت اطلاعات پست
+
+‎◌ /broadcast ↴
+  ᴥ ارسال پیام به کاربران ربات
+
+‎◌ /genlink ↴
+  ᴥ ساخت لینک برای پست کانال
+
+‎◌ /batch ↴
+  ᴥ لینک ارسال گروهی فایل
+
+‎◌ /help ↴
+  ᴥ راهنمای ربات
+"""
 
 #=====================================================================================##
 
