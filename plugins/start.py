@@ -313,7 +313,7 @@ async def id_command(client: Client, message: Message):
             if not nm == "13" and not nm == "12" and not len(nm)>7 and not nm == "Example":
                 await message.reply(f"🆔 آیدی عددی صاحب پیام (نامتعارف):\n[ <code>{nm}</code> ]\n─══════─✦─══════─\n🔗 لینک پست در کانال دیتابیس:\n<a href='https://t.me/c/{str(abs(client.db_channel.id))[3:]}/{ids}'>Goto:{ids}</a>\n─══─✦─══─\n𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋: <a href='https://t.me/Ali4702'>𝙰𝚕𝚒😎</a>", disable_web_page_preview = True, quote = True)
     else:
-        fd = await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /id همراه با شناسه فایل استفاده کنید\n\nمثال:\n/senderid EKhhbKOsMF0xZjZ0", quote = True)
+        fd = await message.reply("⚠️ خطا\n\nدستور اشتباه است!\nاز دستور /senderid همراه با شناسه فایل استفاده کنید\n\nمثال:\n/senderid EKhhbKOsMF0xZjZ0", quote = True)
         await asyncio.sleep(15)
         await fd.delete()
 
