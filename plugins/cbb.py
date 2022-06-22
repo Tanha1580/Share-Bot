@@ -8,6 +8,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 
 @Bot.on_callback_query()
 async def cb_handler(client: Bot, query: CallbackQuery):
+    id = query.from_user.id
     data = query.data
     if data == "about":
         reply_markup = InlineKeyboardMarkup(
@@ -28,7 +29,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         await query.message.edit_text(
             text = ABOUT_MSG,
             disable_web_page_preview = True,
-            reply_markup = reply_markup_admin if message.from_user.id in ADMINS else reply_markup
+            reply_markup = reply_markup_admin if query.from_user.id in ADMINS else reply_markup
         )
     elif data == "help":
         await query.message.edit_text(
