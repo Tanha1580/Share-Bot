@@ -118,13 +118,11 @@ async def start_command(client: Client, message: Message):
                 await asyncio.sleep(3)
                 await bv.delete()
                 return
-        temp_msg = await message.reply("⏳ لطفا صبر کنید ...")
         try:
             messages = await get_messages(client, ids)
         except:
             await message.reply_text("❗️مشکلی رخ داد !")
             return
-        await temp_msg.delete()
 
         for msg in messages:
 
@@ -143,42 +141,16 @@ async def start_command(client: Client, message: Message):
 
                 if font:
                     await asyncio.sleep(0.3)
-                    ms = await message.reply("⏳ پیام بالا تا <u>30</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
-                    await asyncio.sleep(10)
-                    await ms.edit("⏳ پیام بالا تا <u>20</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
-                    await asyncio.sleep(10)
-                    await ms.edit("⏳ پیام بالا تا <u>10</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
-                    await asyncio.sleep(10)
+                    ms = await message.reply("⏳ پیام بالا تا <u>20</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.", quote = True)
+                    await asyncio.sleep(20)
                     await font.delete()
                     await asyncio.sleep(0.2)
-                    await ms.edit(f"🚮 پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
-                    await asyncio.sleep(4)
-                    await ms.delete()
+                    await ms.edit("🚮 پیام حذف شد.", reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("❌ بستن", callback_data = "close")]]))
                 else:
-                    pg = await message.reply(f"⚠️ خطا در دریافت پیام!\n\n⭕ پیام مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردیده است!\n<b>Message_ID:</b> <s>{texxt}</s>")
-                    await asyncio.sleep(3)
-                    await pg.delete()
+                    await message.reply("⚠️ خطا در دریافت پیام!\n\n⭕ پیام مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردیده است!", quote = True, reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("❌ بستن", callback_data = "close")]]))
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                fontt = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-
-                if fontt:
-                    await asyncio.sleep(0.3)
-                    mss = await message.reply("⏳ پیام بالا تا <u>30</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
-                    await asyncio.sleep(10)
-                    await mss.edit("⏳ پیام بالا تا <u>20</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
-                    await asyncio.sleep(10)
-                    await mss.edit("⏳ پیام بالا تا <u>10</u> ثانیه دیگر حذف میشود!\nلطفا قبل از حذف شدن پیام، آن را در Saved Messages تلگرام خود ذخیره کنید.")
-                    await asyncio.sleep(10)
-                    await fontt.delete()
-                    await asyncio.sleep(0.2)
-                    await mss.edit(f"🚮 پیام حذف شد.\n\n<b>Message_id:</b> {texxt}")
-                    await asyncio.sleep(4)
-                    await mss.delete()
-                else:
-                    pgg = await message.reply(f"⚠️ خطا در دریافت پیام!\n\n⭕ پیام مورد نظر توسط ادمین ربات، از دیتابیس ربات حذف گردیده است!\n<b>Message_ID:</b> <s>{texxt}</s>")
-                    await asyncio.sleep(3)
-                    await pgg.delete()
+                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html', reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
             except:
                 pass
         return
