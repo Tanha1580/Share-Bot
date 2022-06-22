@@ -3,6 +3,7 @@
 from pyrogram import __version__
 from bot import Bot
 from config import OWNER_ID, ABOUT_MSG
+from .start import HELP_MSG
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
 @Bot.on_callback_query()
@@ -11,6 +12,18 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     if data == "about":
         await query.message.edit_text(
             text = ABOUT_MSG,
+            disable_web_page_preview = True,
+            reply_markup = InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("❌ بستن", callback_data = "close")
+                    ]
+                ]
+            )
+        )
+    elif data == "help":
+        await query.message.edit_text(
+            text = HELP_MSG,
             disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
                 [
