@@ -20,6 +20,8 @@ GET_MSG = """<b>User Information</b>\n  ├ from {mention}\n  ┊ ├ DC: {dc}\n
 
 REPLY_ERROR = """📢 اطلاع‌رسانی\n\nروی پیام مورد نظر ریپلای نمائید و مجدد <code>/broadcast</code> را ارسال کنید."""
 
+HELP_MSG = """📃راهنمای دستورات ربات:\n\n/users - دریافت آمار کاربران ربات\n\n/id - دریافت اطلاعات کاربر\n\n/senderid [msg_id] - دریافت اطلاعات پست\n\n/broadcast - ارسال پیام به کاربران ربات\n\n/genlink - ساخت لینک برای پست کانال\n\n/batch - لینک ارسال گروهی فایل\n\n/help - راهنمای ربات"""
+
 #=====================================================================================##
 
 
@@ -194,7 +196,7 @@ async def get_users(client: Bot, message: Message):
 @Bot.on_message(filters.command('help') & filters.private & filters.user(ADMINS))
 async def help(client: Bot, message: Message):
     await message.reply(
-        text = "📃راهنمای دستورات ربات:\n\n/users - دریافت آمار کاربران ربات\n\n/id - دریافت اطلاعات کاربر\n\n/senderid [msg_id] - دریافت اطلاعات پست\n\n/broadcast - ارسال پیام به کاربران ربات\n\n/genlink - ساخت لینک برای پست کانال\n\n/batch - لینک ارسال گروهی فایل\n\n/help - راهنمای ربات",
+        text = HELP_MSG,
         quote = True,
         reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("❌ بستن", callback_data = "close")]])
     )
