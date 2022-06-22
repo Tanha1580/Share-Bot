@@ -2,7 +2,7 @@
 
 from pyrogram import __version__
 from bot import Bot
-from config import OWNER_ID, ABOUT_MSG
+from config import OWNER_ID, ABOUT_MSG, ADMINS
 from .start import HELP_MSG
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
@@ -29,7 +29,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         await query.message.edit_text(
             text = ABOUT_MSG,
             disable_web_page_preview = True,
-            reply_markup = reply_markup_admin if query.from_user.id in ADMINS else reply_markup
+            reply_markup = reply_markup_admin if id in ADMINS else reply_markup
         )
     elif data == "help":
         await query.message.edit_text(
