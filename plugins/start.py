@@ -17,7 +17,7 @@ from database.sql import add_user, query_msg, full_userbase
 WAIT_MSG = """⚙ در حال پردازش ..."""
 
 GET_MSG = """<b>𝖴𝗌𝖾𝗋 𝖨𝗇𝖿𝗈𝗋𝗆𝖺𝗍𝗂𝗈𝗇</b>
- ├ Fʀᴏᴍ {mention}
+ ├ Fʀᴏᴍ <a href='tg://user?id={id}'>🅨︎🅞︎🅤︎</a>
  ┊├ 𝖣𝖢: {dc}
  ┊├ 𝖨𝖣: <code>{id}</code>
  ┊├ 𝖥𝗂𝗋𝗌𝗍 𝖭𝖺𝗆𝖾: {first}
