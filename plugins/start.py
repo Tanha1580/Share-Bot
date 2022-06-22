@@ -29,6 +29,8 @@ GET_MSG = """<b>𝖴𝗌𝖾𝗋 𝖨𝗇𝖿𝗈𝗋𝗆𝖺𝗍𝗂𝗈𝗇</b
 
 REPLY_ERROR = """📢 اطلاع‌رسانی\n\nروی پیام مورد نظر ریپلای نمائید و مجدد <code>/broadcast</code> را ارسال کنید."""
 
+REPLYERROR = """📢 فوروارد پیام\n\nروی پیام مورد نظر ریپلای نمائید و مجدد <code>/forward</code> را ارسال کنید."""
+
 HELP_MSG = """‎📃راهنمای دستورات ربات:
 
 ‎◌ /users ↴
@@ -42,6 +44,9 @@ HELP_MSG = """‎📃راهنمای دستورات ربات:
 
 ‎◌ /broadcast ↴
   ᴥ ارسال پیام به کاربران ربات
+
+‎◌ /forward ↴
+  ᴥ فوروارد پیام به کاربران ربات
 
 ‎◌ /genlink ↴
   ᴥ ساخت لینک برای پست کانال
@@ -274,6 +279,51 @@ async def send_text(client: Bot, message: Message):
 
     else:
         msg = await message.reply(REPLY_ERROR)
+        await asyncio.sleep(8)
+        await msg.delete()
+
+@Bot.on_message(filters.private & filters.command('forward') & filters.user(ADMINS))
+async def send_text(client: Bot, message: Message):
+    if message.reply_to_message:
+        query = await query_msg()
+        broadcast_msg = message.reply_to_message
+        total = 0
+        successful = 0
+        blocked = 0
+        deleted = 0
+        unsuccessful = 0
+        
+        pls_wait = await message.reply("📢 فوروارد پیام\nاین عمل ممکن است کمی طول بکشد ...")
+        for row in query:
+            chat_id = int(row[0])
+            try:
+                await broadcast_msg.forward(chat_id)
+                successful += 1
+            except FloodWait as e:
+                await asyncio.sleep(e.x)
+                await broadcast_msg.forward(chat_id)
+                successful += 1
+            except UserIsBlocked:
+                blocked += 1
+            except InputUserDeactivated:
+                deleted += 1
+            except:
+                unsuccessful += 1
+                pass
+            total += 1
+        
+        status = f"""✅ فوروارد پیام کامل شد
+
+<b>• تعداد کاربران: <code>{total}</code>
+• موفق: <code>{successful}</code>
+• کاربران مسدود کرده: <code>{blocked}</code>
+• کاربران حذف شده: <code>{deleted}</code>
+• ناموفق: <code>{unsuccessful}</code></b>"""
+        
+        return await pls_wait.edit(status)
+
+    else:
+        msg = await message.reply(REPLYERROR)
         await asyncio.sleep(8)
         await msg.delete()
 
