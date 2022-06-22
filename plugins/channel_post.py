@@ -9,7 +9,7 @@ from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, X_NUM
 from helper_func import encode, subscribed, subch1, subch2, subch3, subch4, convert, cconvert
 
-@Bot.on_message(filters.private & subscribed & subch1 & subch2 & subch3 & subch4 & ~filters.text & ~filters.sticker & ~filters.edited & ~filters.poll & ~filters.game)
+@Bot.on_message(filters.private & filters.user(ADMINS) & ~filters.edited & ~filters.poll & ~filters.game)
 async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("⏳ لطفا صبر کنید ...", quote = True)
     try:
