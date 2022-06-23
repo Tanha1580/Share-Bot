@@ -34,7 +34,7 @@ CUSTOM_LINK_2 = os.environ.get("CUSTOM_LINK_2", "")
 CUSTOM_LINK_3 = os.environ.get("CUSTOM_LINK_3", "")
 CUSTOM_LINK_4 = os.environ.get("CUSTOM_LINK_4", "")
 
-TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
+TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "5"))
 
 #start message
 START_MSG = os.environ.get("START_MESSAGE", "Hello {first}\n\nI can store private files in Specified Channel and other users can access it from special link.")
